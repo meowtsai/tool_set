@@ -1,0 +1,21 @@
+{
+  "name": "tool_set",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "NODE_ENV=production node ./bin/www",
+    "stage": "NODE_ENV=stage node ./bin/www",
+    "devstart": "NODE_ENV=development nodemon -L server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mysql2": "^1.6.5",
+    "validator": "^10.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.11"
+  }
+}

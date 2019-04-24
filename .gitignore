@@ -1,0 +1,9 @@
+logs
+*.log
+npm-debug.log*
+testdb/
+node_modules/
+jspm_packages/
+source/
+config/config.js
+controllers/test_count.js
