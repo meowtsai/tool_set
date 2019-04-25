@@ -4,8 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "NODE_ENV=production node ./bin/www",
-    "stage": "NODE_ENV=stage node ./bin/www",
+    "start": "NODE_ENV=production node server.js",
+    "stage": "NODE_ENV=stage node server.js",
     "devstart": "NODE_ENV=development nodemon -L server.js"
   },
   "author": "",
