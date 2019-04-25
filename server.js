@@ -9,7 +9,7 @@ app.use("/api/edm", edm);
 app.use("/api/g66_tool", g66_tool);
 
 //serve static assets if in production
-if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "stage") {
   //set a static folder
   app.use(express.static("client/build"));
   //set a route for anything else not list above
