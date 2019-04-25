@@ -13,7 +13,7 @@ class Navbar extends Component {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/gmt" className="nav-link">
+                <Link to="/gmt/g66" className="nav-link">
                   GMT 分析
                 </Link>
               </li>
