@@ -22,4 +22,26 @@ var config = require("./config/config")[app.get("env")];
 const port = config.port; // production mode will return 3001
 //const port = process.env.PORT || 5000;
 
-app.listen(port, () => console.log("Sever is listening on port " + port));
+let server;
+if (app.get("env") !== "production") {
+  var http = require("http");
+
+  server = http.createServer(app);
+} else {
+  var fs = require("fs");
+  const https = require("https");
+  var options = {
+    key: fs.readFileSync(config.ssl_options.keyfile),
+    cert: fs.readFileSync(config.ssl_options.certfile),
+    ca: [fs.readFileSync(config.ssl_options.cafile)]
+  };
+
+  server = https.createServer(options, app);
+}
+
+server.listen(port, "0.0.0.0", function() {
+  console.log("server env :" + app.get("env"));
+  console.log("server is listening on:" + port);
+});
+
+//app.listen(port, () => console.log("Sever is listening on port " + port));
