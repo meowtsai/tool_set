@@ -7,7 +7,8 @@ const pool = mysql.createPool({
   user: CONFIG.db_user,
   database: CONFIG.db_database,
   password: CONFIG.db_password,
-  port: CONFIG.db_port
+  port: CONFIG.db_port,
+  charset: "UTF8_GENERAL_CI"
 });
 
 //connection.connect();
