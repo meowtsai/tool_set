@@ -6,12 +6,14 @@
   "scripts": {
     "start": "NODE_ENV=production node server.js",
     "stage": "NODE_ENV=stage node server.js",
-    "devstart": "NODE_ENV=development nodemon -L server.js"
+    "devstart": "NODE_ENV=development nodemon -L server.js",
+    "winstart": "set NODE_ENV=development && nodemon server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.4",
+    "googleapis": "^39.2.0",
     "mysql2": "^1.6.5",
     "validator": "^10.11.0"
   },

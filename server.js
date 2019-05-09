@@ -1,11 +1,13 @@
 const express = require("express");
-const edm = require("./routes/api/edm");
+//const edm = require("./routes/api/edm");
 const g66_tool = require("./routes/api/g66_tool");
+const youtube = require("./routes/api/youtube");
 const path = require("path");
 const app = express();
 
 app.use(express.json());
 app.use("/api/edm", edm);
+app.use("/api/youtube", youtube);
 app.use("/api/g66_tool", g66_tool);
 
 //serve static assets if in production

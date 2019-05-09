@@ -1,0 +1,303 @@
+{
+  "errors": {
+    "errors": {}
+  },
+  "edms": {
+    "events": [],
+    "edms": [],
+    "edm": {},
+    "update_status": {},
+    "loading": false
+  },
+  "gmt": {
+    "csv": "",
+    "loading": false
+  },
+  "youtube": {
+    "ranking_list": {
+      "kind": "youtube#videoListResponse",
+      "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/lSAVlhfi-bRk5ueopw782w4qKuo\"",
+      "pageInfo": {
+        "totalResults": 5,
+        "resultsPerPage": 5
+      },
+      "items": [
+        {
+          "kind": "youtube#video",
+          "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/8K9sWBp-8AKZvhHUt6y5qiUOI4U\"",
+          "id": "d8iNz27YRXQ",
+          "snippet": {
+            "publishedAt": "2019-05-02T15:36:26.000Z",
+            "channelId": "UCo5pHsgk0RaUek1ORd0PyXA",
+            "title": "CALL OF THE ABYSSⅡ ワールド決勝トーナメント  DAY３",
+            "description": "CALL OF THE ABYSSⅡ ワールド決勝トーナメント  DAY３\n\n【注意】放送の一部は中国語表記および音声のみでの放送となります【注意】\n\n『IdentityV CALL OF THE ABYSSⅡ』ワールド決勝トーナメント DAY２の試合を完全生配信でお届けします！ DAY３ではベスト４〜決勝までをお届けします。ついに、４ヶ月にわたるCOAⅡのグランドフィナーレ！！IdentityVの2019年世界王者が本日決まります！\n\n・DAYⅠ：4月30日（火）に↓で放送\nhttps://www.youtube.com/watch?v=9zN81YGu4ps&t=476s\n・DAYⅢ：5月02日（木）に↓で放送\nhttps://www.youtube.com/watch?v=d8iNz27YRXQ\n\n■IdentityV Call of the AbyssⅡとは？\n全６地区（中国大陸地区、香港・マカオ・台湾地区、欧米地区、東南アジア地区、日本地区、韓国地区）\nに分かれて行われるIdentityVの世界一を決める大会。\n本放送では全６地区を勝ち抜いた全１６チームによる世界一の座をかけた\n熾烈な戦いをDAYⅠ、DAYⅡ、DAYⅢに分けて放送！\n\n■出演者\n【準決勝第1マッチ】\nMC   ：かてぃ（ https://twitter.com/cutty_chan ）\n実況解説：のぴ（ https://twitter.com/nopi_games ）\n\n【準決勝第２マッチ】\nMC   ：かてぃ（ https://twitter.com/cutty_chan ）\n実況解説：まる丸（ https://twitter.com/oO_Marumaru_Oo ）\n\n【３位決定戦】\nMC   ：夜代太郎（ https://twitter.com/cos_YAYO ）\n実況解説：まる丸（ https://twitter.com/oO_Marumaru_Oo ）\n\n【決勝戦】\nMC   ：夜代太郎（ https://twitter.com/cos_YAYO ）\n実況解説：絶対死なないマン（ https://twitter.com/marumaruTV ）\n\n※出演者は予告なく変更される場合がございます。\n\n\n■放送内容（10時間 目安）\n【前半】12時半〜放送 予定\n・オープニング\n・準決勝第１マッチ: GUM(東南アジア) vs XGI(中国)\n・準決勝第２マッチ: GR(中国) vs 5hs(中国)\n・ハーフタイムショー\n\n【後半】17:30 〜放送 予定\n・3位決定戦\n・決勝戦\n・エンディング\n※放送内容は予告なく変更になる場合がございます。\n※放送時間は大会進行により前後する場合がございます\n※放送内容は予告なく変更になる場合がございます。\n※放送時間は大会進行により前後する場合がございます\n\n□□□□□□□□□大会ルール□□□□□□□□□\n■BO３（最大３試合）※１試合20分目安\n ※決勝戦のみ BO5\n■１試合２ゲーム制（前半戦・後半戦）\n■前後半でサバイバーをプレイするチームを交代\n■サバイバー/ハンター使用制限：探鉱者・呪術師・泣き虫\n■マップ使用制限：ホワイトサンド精神病院\n■殿堂入り級モード採用：パーティ内でのキャラ被り禁止\n■ BAN&Pick採用\n第１試合：BANなし\n第２試合：ハンター・サバイバー１キャラクターづつBAN\n第３試合：ハンター・サバイバー２キャラクターづつBAN\n第４試合：ハンター・サバイバー３キャラクターづつBAN\n第５試合：ハンター・サバイバー３キャラクターづつBAN\n※試合開始前にチャットルームにて両チームでBANを指定\n※サバイバーをプレイするチームが先にハンターのBAN指定を行います\n\n【勝利条件】\n■先に２試合勝ったチームの勝利 or 合計対戦ptの多いチーム\n ※決勝戦のみ３試合先取 or  合計対戦ptの多いチーム\n\n【試合の勝利条件】\n・前半戦/後半戦 終了後に獲得した対戦ptの多いチームが勝利\n\n【対戦pt】\n対戦pt：脱出した/捕まえた人数に応じて付与されるpt\n・対戦pt集計方法\n      サバイバー ｜ ハンター\n4人脱出   5pt                    ０pt\n3人脱出     3pt                     1pt\n2人脱出     2pt                     2pt\n1人脱出   1pt                     3pt\n0人脱出     0pt                     5pt\n\n【延長戦について】\n・３試合（５試合）終了後、勝敗が同率の場合は、３試合（５試合）を通じて獲得した対戦ptの合計が多いチームの勝利。\n・対戦ptも同じ場合は延長戦を１回のみ行います\n・延長戦でもBANキャラクターは2対づつ\n・延長戦も同率：対戦したチームでサバイバーが１人でも脱出している場合はサバイバー時のプレイタイムが短かったチームの勝利\n・サバイバー時のプレイタイムも同率：ハンタープレイ時のプレイタイムが短かったチームの勝利\n\n□□□□□□□□□□□□□□□□□□□□□□\n\n■IdentityVを今すぐDL！\nhttps://go.onelink.me/faIR?pid=live921\n\n■IdentityV 公式Twitter\nhttps://twitter.com/identityvjp\n\n■IdentityV公式サイト\nhttps://www.identityv.jp/",
+            "thumbnails": {
+              "default": {
+                "url": "https://i.ytimg.com/vi/d8iNz27YRXQ/default.jpg",
+                "width": 120,
+                "height": 90
+              },
+              "medium": {
+                "url": "https://i.ytimg.com/vi/d8iNz27YRXQ/mqdefault.jpg",
+                "width": 320,
+                "height": 180
+              },
+              "high": {
+                "url": "https://i.ytimg.com/vi/d8iNz27YRXQ/hqdefault.jpg",
+                "width": 480,
+                "height": 360
+              }
+            },
+            "channelTitle": "『Identity5第五人格』公式チャンネル",
+            "categoryId": "20",
+            "liveBroadcastContent": "none",
+            "localized": {
+              "title": "CALL OF THE ABYSSⅡ ワールド決勝トーナメント  DAY３",
+              "description": "CALL OF THE ABYSSⅡ ワールド決勝トーナメント  DAY３\n\n【注意】放送の一部は中国語表記および音声のみでの放送となります【注意】\n\n『IdentityV CALL OF THE ABYSSⅡ』ワールド決勝トーナメント DAY２の試合を完全生配信でお届けします！ DAY３ではベスト４〜決勝までをお届けします。ついに、４ヶ月にわたるCOAⅡのグランドフィナーレ！！IdentityVの2019年世界王者が本日決まります！\n\n・DAYⅠ：4月30日（火）に↓で放送\nhttps://www.youtube.com/watch?v=9zN81YGu4ps&t=476s\n・DAYⅢ：5月02日（木）に↓で放送\nhttps://www.youtube.com/watch?v=d8iNz27YRXQ\n\n■IdentityV Call of the AbyssⅡとは？\n全６地区（中国大陸地区、香港・マカオ・台湾地区、欧米地区、東南アジア地区、日本地区、韓国地区）\nに分かれて行われるIdentityVの世界一を決める大会。\n本放送では全６地区を勝ち抜いた全１６チームによる世界一の座をかけた\n熾烈な戦いをDAYⅠ、DAYⅡ、DAYⅢに分けて放送！\n\n■出演者\n【準決勝第1マッチ】\nMC   ：かてぃ（ https://twitter.com/cutty_chan ）\n実況解説：のぴ（ https://twitter.com/nopi_games ）\n\n【準決勝第２マッチ】\nMC   ：かてぃ（ https://twitter.com/cutty_chan ）\n実況解説：まる丸（ https://twitter.com/oO_Marumaru_Oo ）\n\n【３位決定戦】\nMC   ：夜代太郎（ https://twitter.com/cos_YAYO ）\n実況解説：まる丸（ https://twitter.com/oO_Marumaru_Oo ）\n\n【決勝戦】\nMC   ：夜代太郎（ https://twitter.com/cos_YAYO ）\n実況解説：絶対死なないマン（ https://twitter.com/marumaruTV ）\n\n※出演者は予告なく変更される場合がございます。\n\n\n■放送内容（10時間 目安）\n【前半】12時半〜放送 予定\n・オープニング\n・準決勝第１マッチ: GUM(東南アジア) vs XGI(中国)\n・準決勝第２マッチ: GR(中国) vs 5hs(中国)\n・ハーフタイムショー\n\n【後半】17:30 〜放送 予定\n・3位決定戦\n・決勝戦\n・エンディング\n※放送内容は予告なく変更になる場合がございます。\n※放送時間は大会進行により前後する場合がございます\n※放送内容は予告なく変更になる場合がございます。\n※放送時間は大会進行により前後する場合がございます\n\n□□□□□□□□□大会ルール□□□□□□□□□\n■BO３（最大３試合）※１試合20分目安\n ※決勝戦のみ BO5\n■１試合２ゲーム制（前半戦・後半戦）\n■前後半でサバイバーをプレイするチームを交代\n■サバイバー/ハンター使用制限：探鉱者・呪術師・泣き虫\n■マップ使用制限：ホワイトサンド精神病院\n■殿堂入り級モード採用：パーティ内でのキャラ被り禁止\n■ BAN&Pick採用\n第１試合：BANなし\n第２試合：ハンター・サバイバー１キャラクターづつBAN\n第３試合：ハンター・サバイバー２キャラクターづつBAN\n第４試合：ハンター・サバイバー３キャラクターづつBAN\n第５試合：ハンター・サバイバー３キャラクターづつBAN\n※試合開始前にチャットルームにて両チームでBANを指定\n※サバイバーをプレイするチームが先にハンターのBAN指定を行います\n\n【勝利条件】\n■先に２試合勝ったチームの勝利 or 合計対戦ptの多いチーム\n ※決勝戦のみ３試合先取 or  合計対戦ptの多いチーム\n\n【試合の勝利条件】\n・前半戦/後半戦 終了後に獲得した対戦ptの多いチームが勝利\n\n【対戦pt】\n対戦pt：脱出した/捕まえた人数に応じて付与されるpt\n・対戦pt集計方法\n      サバイバー ｜ ハンター\n4人脱出   5pt                    ０pt\n3人脱出     3pt                     1pt\n2人脱出     2pt                     2pt\n1人脱出   1pt                     3pt\n0人脱出     0pt                     5pt\n\n【延長戦について】\n・３試合（５試合）終了後、勝敗が同率の場合は、３試合（５試合）を通じて獲得した対戦ptの合計が多いチームの勝利。\n・対戦ptも同じ場合は延長戦を１回のみ行います\n・延長戦でもBANキャラクターは2対づつ\n・延長戦も同率：対戦したチームでサバイバーが１人でも脱出している場合はサバイバー時のプレイタイムが短かったチームの勝利\n・サバイバー時のプレイタイムも同率：ハンタープレイ時のプレイタイムが短かったチームの勝利\n\n□□□□□□□□□□□□□□□□□□□□□□\n\n■IdentityVを今すぐDL！\nhttps://go.onelink.me/faIR?pid=live921\n\n■IdentityV 公式Twitter\nhttps://twitter.com/identityvjp\n\n■IdentityV公式サイト\nhttps://www.identityv.jp/"
+            }
+          },
+          "contentDetails": {
+            "duration": "PT10H13M15S",
+            "dimension": "2d",
+            "definition": "hd",
+            "caption": "false",
+            "licensedContent": false,
+            "projection": "rectangular"
+          },
+          "statistics": {
+            "viewCount": "264410",
+            "likeCount": "2682",
+            "dislikeCount": "675",
+            "favoriteCount": "0",
+            "commentCount": "252"
+          }
+        },
+        {
+          "kind": "youtube#video",
+          "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/yzVPnXmc-VIgn3jeJb-8EwLDeNU\"",
+          "id": "wkLMXf9v2fM",
+          "snippet": {
+            "publishedAt": "2019-05-01T16:57:19.000Z",
+            "channelId": "UCo5pHsgk0RaUek1ORd0PyXA",
+            "title": "CALL OF THE ABYSSⅡ ワールド決勝トーナメント  DAY２",
+            "description": "【注意】放送の一部は中国語表記および音声のみでの放送となります【注意】\n\n『IdentityV CALL OF THE ABYSSⅡ』ワールド決勝トーナメント DAY２の試合を完全生配信でお届けします！ワールド決勝トーナメントでは１６チームを第1部・第２部に分けトーナメントを行います。 DAY２ではトーナメントの第２部を行い、ベスト４に出場する最後の２チームを決めます。\n\n・DAYⅠ：4月30日（火）に↓で放送\nhttps://www.youtube.com/watch?v=9zN81YGu4ps&t=476s\n・DAYⅢ：5月02日（木）に↓で放送\nhttps://www.youtube.com/watch?v=d8iNz27YRXQ\n\n■IdentityV Call of the AbyssⅡとは？\n全６地区（中国大陸地区、香港・マカオ・台湾地区、欧米地区、東南アジア地区、日本地区、韓国地区）\nに分かれて行われるIdentityVの世界一を決める大会。\n本放送では全６地区を勝ち抜いた全１６チームによる世界一の座をかけた\n熾烈な戦いをDAYⅠ、DAYⅡ、DAYⅢに分けて放送！\nついに、 IdentityVの2019年世界王者が決まります！\n\n■出演者\n【前半】\nMC   ：夜代太郎(（ https://twitter.com/cos_YAYO ）\n実況解説：のぴ（ https://twitter.com/nopi_games ）\n\n【後半】\nMC   ：かてぃ（ https://twitter.com/cutty_chan ）\n実況解説：絶対死なないマン（ https://twitter.com/marumaruTV ）\n\n■放送内容（10時間 目安）\nトーナメント第２部\n【前半】12時45〜放送開始 予定\n・オープニング\n・第１マッチ： ITC vs TK\n・第２マッチ：XGI vs RG\n・第３マッチ：Mrc vs TZC\n\n【後半】16時〜放送開始 予定\n・第４マッチ：WoW  vs 5hs\n・ハーフタイムショー\n・ベスト８第1マッチ\n・ベスト８第２マッチ\n・エンディング\n※放送内容は予告なく変更になる場合がございます。\n※放送時間は大会進行により前後する場合がございます\n\n□□□□□□□□□大会ルール□□□□□□□□□\n■BO３（最大３試合）※１試合20分目安\n■１試合２ゲーム制（前半戦・後半戦）\n■前後半でサバイバーをプレイするチームを交代\n■サバイバー/ハンター使用制限：探鉱者・呪術師・泣き虫\n■殿堂入り級モード採用：パーティ内でのキャラ被り禁止\n■ BAN&Pick採用\n第１試合：BANなし\n第２試合：ハンター・サバイバー１キャラクターづつBAN\n第３試合：ハンター・サバイバー２キャラクターづつBAN\n※試合開始前にチャットルームにて両チームでBANを指定\n※サバイバーをプレイするチームが先にハンターのBAN指定を行います\n\n【勝利条件】\n■先に２試合勝ったチームの勝利\n\n【試合の勝利条件】\n・前半戦/後半戦 終了後に獲得した対戦ptの多いチームが勝利\n\n【対戦pt】\n対戦pt：脱出した/捕まえた人数に応じて付与されるpt\n・対戦pt集計方法\n      サバイバー ｜ ハンター\n4人脱出   5pt                    ０pt\n3人脱出     3pt                     1pt\n2人脱出     2pt                     2pt\n1人脱出   1pt                     3pt\n0人脱出     0pt                     5pt    \n\n【延長戦について】\n・３試合終了後、勝敗が同率の場合は、３試合を通じて獲得した\n対戦ptの合計が多いチームの勝利。\n・対戦ptも同じ場合は延長戦を１回のみ行います\n・延長戦でもBANキャラクターは2対づつ\n・延長戦も同率：対戦したチームでサバイバーが１人でも脱出している場合は\n サバイバー時のプレイタイムが短かったチームの勝利\n・サバイバー時のプレイタイムも同率：ハンタープレイ時のプレイタイムが短かったチームの勝利\n\n□□□□□□□□□□□□□□□□□□□□□□\n\n■IdentityVを今すぐDL！\nhttps://go.onelink.me/faIR?pid=live921\n\n■IdentityV 公式Twitter\nhttps://twitter.com/identityvjp\n\n■IdentityV公式サイト\nhttps://www.identityv.jp/",
+            "thumbnails": {
+              "default": {
+                "url": "https://i.ytimg.com/vi/wkLMXf9v2fM/default.jpg",
+                "width": 120,
+                "height": 90
+              },
+              "medium": {
+                "url": "https://i.ytimg.com/vi/wkLMXf9v2fM/mqdefault.jpg",
+                "width": 320,
+                "height": 180
+              },
+              "high": {
+                "url": "https://i.ytimg.com/vi/wkLMXf9v2fM/hqdefault.jpg",
+                "width": 480,
+                "height": 360
+              }
+            },
+            "channelTitle": "『Identity5第五人格』公式チャンネル",
+            "categoryId": "20",
+            "liveBroadcastContent": "none",
+            "localized": {
+              "title": "CALL OF THE ABYSSⅡ ワールド決勝トーナメント  DAY２",
+              "description": "【注意】放送の一部は中国語表記および音声のみでの放送となります【注意】\n\n『IdentityV CALL OF THE ABYSSⅡ』ワールド決勝トーナメント DAY２の試合を完全生配信でお届けします！ワールド決勝トーナメントでは１６チームを第1部・第２部に分けトーナメントを行います。 DAY２ではトーナメントの第２部を行い、ベスト４に出場する最後の２チームを決めます。\n\n・DAYⅠ：4月30日（火）に↓で放送\nhttps://www.youtube.com/watch?v=9zN81YGu4ps&t=476s\n・DAYⅢ：5月02日（木）に↓で放送\nhttps://www.youtube.com/watch?v=d8iNz27YRXQ\n\n■IdentityV Call of the AbyssⅡとは？\n全６地区（中国大陸地区、香港・マカオ・台湾地区、欧米地区、東南アジア地区、日本地区、韓国地区）\nに分かれて行われるIdentityVの世界一を決める大会。\n本放送では全６地区を勝ち抜いた全１６チームによる世界一の座をかけた\n熾烈な戦いをDAYⅠ、DAYⅡ、DAYⅢに分けて放送！\nついに、 IdentityVの2019年世界王者が決まります！\n\n■出演者\n【前半】\nMC   ：夜代太郎(（ https://twitter.com/cos_YAYO ）\n実況解説：のぴ（ https://twitter.com/nopi_games ）\n\n【後半】\nMC   ：かてぃ（ https://twitter.com/cutty_chan ）\n実況解説：絶対死なないマン（ https://twitter.com/marumaruTV ）\n\n■放送内容（10時間 目安）\nトーナメント第２部\n【前半】12時45〜放送開始 予定\n・オープニング\n・第１マッチ： ITC vs TK\n・第２マッチ：XGI vs RG\n・第３マッチ：Mrc vs TZC\n\n【後半】16時〜放送開始 予定\n・第４マッチ：WoW  vs 5hs\n・ハーフタイムショー\n・ベスト８第1マッチ\n・ベスト８第２マッチ\n・エンディング\n※放送内容は予告なく変更になる場合がございます。\n※放送時間は大会進行により前後する場合がございます\n\n□□□□□□□□□大会ルール□□□□□□□□□\n■BO３（最大３試合）※１試合20分目安\n■１試合２ゲーム制（前半戦・後半戦）\n■前後半でサバイバーをプレイするチームを交代\n■サバイバー/ハンター使用制限：探鉱者・呪術師・泣き虫\n■殿堂入り級モード採用：パーティ内でのキャラ被り禁止\n■ BAN&Pick採用\n第１試合：BANなし\n第２試合：ハンター・サバイバー１キャラクターづつBAN\n第３試合：ハンター・サバイバー２キャラクターづつBAN\n※試合開始前にチャットルームにて両チームでBANを指定\n※サバイバーをプレイするチームが先にハンターのBAN指定を行います\n\n【勝利条件】\n■先に２試合勝ったチームの勝利\n\n【試合の勝利条件】\n・前半戦/後半戦 終了後に獲得した対戦ptの多いチームが勝利\n\n【対戦pt】\n対戦pt：脱出した/捕まえた人数に応じて付与されるpt\n・対戦pt集計方法\n      サバイバー ｜ ハンター\n4人脱出   5pt                    ０pt\n3人脱出     3pt                     1pt\n2人脱出     2pt                     2pt\n1人脱出   1pt                     3pt\n0人脱出     0pt                     5pt    \n\n【延長戦について】\n・３試合終了後、勝敗が同率の場合は、３試合を通じて獲得した\n対戦ptの合計が多いチームの勝利。\n・対戦ptも同じ場合は延長戦を１回のみ行います\n・延長戦でもBANキャラクターは2対づつ\n・延長戦も同率：対戦したチームでサバイバーが１人でも脱出している場合は\n サバイバー時のプレイタイムが短かったチームの勝利\n・サバイバー時のプレイタイムも同率：ハンタープレイ時のプレイタイムが短かったチームの勝利\n\n□□□□□□□□□□□□□□□□□□□□□□\n\n■IdentityVを今すぐDL！\nhttps://go.onelink.me/faIR?pid=live921\n\n■IdentityV 公式Twitter\nhttps://twitter.com/identityvjp\n\n■IdentityV公式サイト\nhttps://www.identityv.jp/"
+            }
+          },
+          "contentDetails": {
+            "duration": "PT11H27M4S",
+            "dimension": "2d",
+            "definition": "hd",
+            "caption": "false",
+            "licensedContent": false,
+            "projection": "rectangular"
+          },
+          "statistics": {
+            "viewCount": "231043",
+            "likeCount": "2445",
+            "dislikeCount": "116",
+            "favoriteCount": "0",
+            "commentCount": "153"
+          }
+        },
+        {
+          "kind": "youtube#video",
+          "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/MAycf6l0ZICQVkvLbD3JXwZBZQQ\"",
+          "id": "IkRY9fQoSaw",
+          "snippet": {
+            "publishedAt": "2019-05-03T16:51:51.000Z",
+            "channelId": "UCsYA4QvmrItkfEMVyAJLJWA",
+            "title": "第五人格：新地图“永眠镇”宣传揭秘！还有电车可以开，太期待了",
+            "description": "第五人格：新地图“永眠镇”宣传揭秘！还有电车可以开，太期待了",
+            "thumbnails": {
+              "default": {
+                "url": "https://i.ytimg.com/vi/IkRY9fQoSaw/default.jpg",
+                "width": 120,
+                "height": 90
+              },
+              "medium": {
+                "url": "https://i.ytimg.com/vi/IkRY9fQoSaw/mqdefault.jpg",
+                "width": 320,
+                "height": 180
+              },
+              "high": {
+                "url": "https://i.ytimg.com/vi/IkRY9fQoSaw/hqdefault.jpg",
+                "width": 480,
+                "height": 360
+              },
+              "standard": {
+                "url": "https://i.ytimg.com/vi/IkRY9fQoSaw/sddefault.jpg",
+                "width": 640,
+                "height": 480
+              },
+              "maxres": {
+                "url": "https://i.ytimg.com/vi/IkRY9fQoSaw/maxresdefault.jpg",
+                "width": 1280,
+                "height": 720
+              }
+            },
+            "channelTitle": "牧童说",
+            "tags": ["第五人格", "游戏解说", "6阶屠皇"],
+            "categoryId": "20",
+            "liveBroadcastContent": "none",
+            "defaultLanguage": "zh",
+            "localized": {
+              "title": "第五人格：新地图“永眠镇”宣传揭秘！还有电车可以开，太期待了",
+              "description": "第五人格：新地图“永眠镇”宣传揭秘！还有电车可以开，太期待了"
+            },
+            "defaultAudioLanguage": "zh"
+          },
+          "contentDetails": {
+            "duration": "PT3M59S",
+            "dimension": "2d",
+            "definition": "hd",
+            "caption": "false",
+            "licensedContent": true,
+            "projection": "rectangular"
+          },
+          "statistics": {
+            "viewCount": "162904",
+            "likeCount": "3259",
+            "dislikeCount": "45",
+            "favoriteCount": "0",
+            "commentCount": "612"
+          }
+        },
+        {
+          "kind": "youtube#video",
+          "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/XWkrPckvoC1iqHre4MyAzoEmhrc\"",
+          "id": "Zh_tnLWmJHw",
+          "snippet": {
+            "publishedAt": "2019-05-03T12:03:23.000Z",
+            "channelId": "UC-1uvY3U4sMSGi52IcT_fWQ",
+            "title": "【第五人格】新深淵ガチャ！課金額も深淵にに…【IdentityⅤ】【アイデンティティファイブ】",
+            "description": "↓是非チャンネル登録宜しくお願いします！\nhttps://www.youtube.com/channel/UC-1uvY3U4sMSGi52IcT_fWQ?sub_confirmation=1\n↓Twitterでも仲良くしてください∩(･ω･`;)∩\nhttps://twitter.com/satoniya_\n\n\n↓【第五人格】再生リスト\nhttps://www.youtube.com/playlist?list=PLTBSwEBhAd_mEFW3nwgau4FhfIsgkCmp0\n\n\n\nついに始動…！スマホ版デッドバイデイライト - 第五人格 -日本語版を実況してます！【IdentityⅤ】これからが楽しみです。\n医師や空軍や機械技師、初心者向けの動画もあげておりますのでそちらもよろしくお願いします。",
+            "thumbnails": {
+              "default": {
+                "url": "https://i.ytimg.com/vi/Zh_tnLWmJHw/default.jpg",
+                "width": 120,
+                "height": 90
+              },
+              "medium": {
+                "url": "https://i.ytimg.com/vi/Zh_tnLWmJHw/mqdefault.jpg",
+                "width": 320,
+                "height": 180
+              },
+              "high": {
+                "url": "https://i.ytimg.com/vi/Zh_tnLWmJHw/hqdefault.jpg",
+                "width": 480,
+                "height": 360
+              },
+              "standard": {
+                "url": "https://i.ytimg.com/vi/Zh_tnLWmJHw/sddefault.jpg",
+                "width": 640,
+                "height": 480
+              },
+              "maxres": {
+                "url": "https://i.ytimg.com/vi/Zh_tnLWmJHw/maxresdefault.jpg",
+                "width": 1280,
+                "height": 720
+              }
+            },
+            "channelTitle": "さとみ",
+            "tags": ["第五人格"],
+            "categoryId": "20",
+            "liveBroadcastContent": "none",
+            "localized": {
+              "title": "【第五人格】新深淵ガチャ！課金額も深淵にに…【IdentityⅤ】【アイデンティティファイブ】",
+              "description": "↓是非チャンネル登録宜しくお願いします！\nhttps://www.youtube.com/channel/UC-1uvY3U4sMSGi52IcT_fWQ?sub_confirmation=1\n↓Twitterでも仲良くしてください∩(･ω･`;)∩\nhttps://twitter.com/satoniya_\n\n\n↓【第五人格】再生リスト\nhttps://www.youtube.com/playlist?list=PLTBSwEBhAd_mEFW3nwgau4FhfIsgkCmp0\n\n\n\nついに始動…！スマホ版デッドバイデイライト - 第五人格 -日本語版を実況してます！【IdentityⅤ】これからが楽しみです。\n医師や空軍や機械技師、初心者向けの動画もあげておりますのでそちらもよろしくお願いします。"
+            }
+          },
+          "contentDetails": {
+            "duration": "PT17M47S",
+            "dimension": "2d",
+            "definition": "hd",
+            "caption": "false",
+            "licensedContent": true,
+            "projection": "rectangular"
+          },
+          "statistics": {
+            "viewCount": "137403",
+            "likeCount": "7161",
+            "dislikeCount": "56",
+            "favoriteCount": "0",
+            "commentCount": "1086"
+          }
+        },
+        {
+          "kind": "youtube#video",
+          "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/o1ZxmFPiVGs5OBkz7nDm8eMaVP0\"",
+          "id": "9zN81YGu4ps",
+          "snippet": {
+            "publishedAt": "2019-05-01T02:32:58.000Z",
+            "channelId": "UCo5pHsgk0RaUek1ORd0PyXA",
+            "title": "CALL OF THE ABYSSⅡ ワールド決勝トーナメント  DAY1",
+            "description": "【注意】放送の一部は中国語表記および音声のみでの放送となります【注意】\n\n『IdentityV CALL OF THE ABYSSⅡ』ワールド決勝トーナメント DAY1の試合を完全生配信でお届けします！ワールド決勝トーナメントでは１６チームを第1部・第２部に分けトーナメントを行います。 DAY１はトーナメント第1部を行い、ベスト４に出場する２チームを決めます。\n\n・DAYⅡ：5月01日（水）に↓で放送\nhttps://www.youtube.com/watch?v=wkLMXf9v2fM¥\n・DAYⅢ：5月02日（木）に↓で放送\nhttps://www.youtube.com/watch?v=d8iNz27YRXQ\n\n■IdentityV Call of the AbyssⅡとは？\n全６地区（中国大陸地区、香港・マカオ・台湾地区、欧米地区、東南アジア地区、日本地区、韓国地区）\nに分かれて行われるIdentityVの世界一を決める大会。\n本放送では全６地区を勝ち抜いた全１６チームによる世界一の座をかけた\n熾烈な戦いをDAYⅠ、DAYⅡ、DAYⅢに分けて放送！\nついに、 IdentityVの2019年世界王者が決まります！\n\n■出演者\n【前半】\nMC   ：夜代太郎（ https://twitter.com/cos_YAYO ）\n実況解説：絶対死なないマン（ https://twitter.com/marumaruTV ）\n\n【後半】\nMC   ：かてぃ（ https://twitter.com/cutty_chan ）\n実況解説：まる丸（ https://twitter.com/oO_Marumaru_Oo ）\n\n■放送内容（10時間 目安）\nトーナメント第１部\n【前半】13時〜放送開始 予定\n・オープニング\n・第１マッチ： A&O vs 第五神格\n・第２マッチ：HB vs GUM\n・第３マッチ：Ws vs GR\n・第４マッチ：NL vs ALEXさん大好き\n・ハーフタイムショー\n\n【後半】19時〜放送開始 予定\n・ベスト８第1マッチ\n・ベスト８第２マッチ\n・エンディング\n※放送内容は予告なく変更になる場合がございます。\n※放送時間は大会進行により前後する場合がございます\n\n■IdentityVを今すぐDL！\nhttps://go.onelink.me/faIR?pid=live921\n\n■IdentityV 公式Twitter\nhttps://twitter.com/identityvjp\n\n■IdentityV公式サイト\nhttps://www.identityv.jp/",
+            "thumbnails": {
+              "default": {
+                "url": "https://i.ytimg.com/vi/9zN81YGu4ps/default.jpg",
+                "width": 120,
+                "height": 90
+              },
+              "medium": {
+                "url": "https://i.ytimg.com/vi/9zN81YGu4ps/mqdefault.jpg",
+                "width": 320,
+                "height": 180
+              },
+              "high": {
+                "url": "https://i.ytimg.com/vi/9zN81YGu4ps/hqdefault.jpg",
+                "width": 480,
+                "height": 360
+              }
+            },
+            "channelTitle": "『Identity5第五人格』公式チャンネル",
+            "categoryId": "20",
+            "liveBroadcastContent": "none",
+            "localized": {
+              "title": "CALL OF THE ABYSSⅡ ワールド決勝トーナメント  DAY1",
+              "description": "【注意】放送の一部は中国語表記および音声のみでの放送となります【注意】\n\n『IdentityV CALL OF THE ABYSSⅡ』ワールド決勝トーナメント DAY1の試合を完全生配信でお届けします！ワールド決勝トーナメントでは１６チームを第1部・第２部に分けトーナメントを行います。 DAY１はトーナメント第1部を行い、ベスト４に出場する２チームを決めます。\n\n・DAYⅡ：5月01日（水）に↓で放送\nhttps://www.youtube.com/watch?v=wkLMXf9v2fM¥\n・DAYⅢ：5月02日（木）に↓で放送\nhttps://www.youtube.com/watch?v=d8iNz27YRXQ\n\n■IdentityV Call of the AbyssⅡとは？\n全６地区（中国大陸地区、香港・マカオ・台湾地区、欧米地区、東南アジア地区、日本地区、韓国地区）\nに分かれて行われるIdentityVの世界一を決める大会。\n本放送では全６地区を勝ち抜いた全１６チームによる世界一の座をかけた\n熾烈な戦いをDAYⅠ、DAYⅡ、DAYⅢに分けて放送！\nついに、 IdentityVの2019年世界王者が決まります！\n\n■出演者\n【前半】\nMC   ：夜代太郎（ https://twitter.com/cos_YAYO ）\n実況解説：絶対死なないマン（ https://twitter.com/marumaruTV ）\n\n【後半】\nMC   ：かてぃ（ https://twitter.com/cutty_chan ）\n実況解説：まる丸（ https://twitter.com/oO_Marumaru_Oo ）\n\n■放送内容（10時間 目安）\nトーナメント第１部\n【前半】13時〜放送開始 予定\n・オープニング\n・第１マッチ： A&O vs 第五神格\n・第２マッチ：HB vs GUM\n・第３マッチ：Ws vs GR\n・第４マッチ：NL vs ALEXさん大好き\n・ハーフタイムショー\n\n【後半】19時〜放送開始 予定\n・ベスト８第1マッチ\n・ベスト８第２マッチ\n・エンディング\n※放送内容は予告なく変更になる場合がございます。\n※放送時間は大会進行により前後する場合がございます\n\n■IdentityVを今すぐDL！\nhttps://go.onelink.me/faIR?pid=live921\n\n■IdentityV 公式Twitter\nhttps://twitter.com/identityvjp\n\n■IdentityV公式サイト\nhttps://www.identityv.jp/"
+            }
+          },
+          "contentDetails": {
+            "duration": "PT11H15M45S",
+            "dimension": "2d",
+            "definition": "hd",
+            "caption": "false",
+            "licensedContent": false,
+            "projection": "rectangular"
+          },
+          "statistics": {
+            "viewCount": "105025",
+            "likeCount": "1967",
+            "dislikeCount": "38",
+            "favoriteCount": "0",
+            "commentCount": "209"
+          }
+        }
+      ]
+    },
+    "loading": false
+  }
+}
