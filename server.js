@@ -1,5 +1,5 @@
 const express = require("express");
-//const edm = require("./routes/api/edm");
+const edm = require("./routes/api/edm");
 const g66_tool = require("./routes/api/g66_tool");
 const youtube = require("./routes/api/youtube");
 const path = require("path");
