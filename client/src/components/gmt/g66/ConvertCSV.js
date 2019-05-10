@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { CSVLink, CSVDownload } from "react-csv";
+import { CSVLink } from "react-csv";
 
 import InputGroup from "../../common/InputGroup";
 import { getCSV } from "../../../actions/gmtActions";
