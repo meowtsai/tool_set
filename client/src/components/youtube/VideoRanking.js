@@ -15,6 +15,7 @@ class VideoRanking extends Component {
     super(props);
     this.state = {
       game_name: "第五人格",
+      sort_by: "viewCount",
       keyword: "",
       channelId: "",
       channelTitle: "",
@@ -84,6 +85,7 @@ class VideoRanking extends Component {
   submitForm(pageToken) {
     let searchObject = {
       game_name: this.state.game_name,
+      sort_by: this.state.sort_by,
       keyword: this.state.keyword,
       channelId: this.state.channelId,
       begin_time: moment(this.state.begin_time).format("YYYY-MM-DDTHH:mm:ss"), //2019-04-24T14:00
@@ -119,6 +121,7 @@ class VideoRanking extends Component {
     const {
       errors,
       game_name,
+      sort_by,
       channelTitle,
       begin_time,
       end_time
@@ -132,11 +135,17 @@ class VideoRanking extends Component {
     //console.log(this.state);
     let options = [
       { label: "第五人格", value: "第五人格" },
+      { label: "明日之後", value: "明日之後" },
       { label: "決戰平安京", value: "決戰平安京" },
       { label: "光明之戰", value: "光明之戰" },
       { label: "權力與紛爭", value: "權力與紛爭" },
       { label: "荒野行動", value: "荒野行動" },
       { label: "遇見逆水寒", value: "遇見逆水寒" }
+    ];
+    let sortByOptions = [
+      { label: "觀看數", value: "viewCount" },
+      { label: "發佈日期", value: "date" },
+      { label: "評價", value: "rating" }
     ];
 
     return (
@@ -157,6 +166,15 @@ class VideoRanking extends Component {
                     onChange={this.onChange}
                     error={errors.game_name}
                     options={options}
+                    info=""
+                  />
+                  <SelectListGroup
+                    placeholder="排序"
+                    name="sort_by"
+                    value={this.state.sort_by}
+                    onChange={this.onChange}
+                    error={errors.sort_by}
+                    options={sortByOptions}
                     info=""
                   />
                   <TextFieldGroup

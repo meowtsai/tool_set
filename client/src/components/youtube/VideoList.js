@@ -2,13 +2,26 @@ import React, { Component } from "react";
 import moment from "moment";
 import { CSVLink } from "react-csv";
 class VideoList extends Component {
+  state = {
+    sortyBy: "viewCount",
+    asc: false
+  };
   onCopyClick(chID, chTitle) {
     this.props.copyToInput(chID, chTitle);
   }
+
+  onSortClick(sortyBy) {
+    console.log(sortyBy);
+    this.setState({ sortyBy, asc: !this.state.asc });
+  }
+
   render() {
     const { videos, page, fileName } = this.props;
-    console.log(fileName);
-    const dataToDisplay = videos
+    const { sortyBy, asc } = this.state;
+    //console.log(fileName);
+
+    //console.log(dataVideos);
+    let dataToDisplay = videos
       ? videos.map((video, index) => {
           return {
             rank: index + 1 + 50 * (page - 1),
@@ -34,6 +47,30 @@ class VideoList extends Component {
           };
         })
       : [];
+
+    //console.log("dataToDisplay", JSON.stringify(dataToDisplay));
+
+    if (sortyBy !== "") {
+      let scending = asc ? 1 : -1;
+
+      dataToDisplay.sort((a, b) => {
+        if (sortyBy === "viewCount") {
+          if (parseInt(a[sortyBy]) - parseInt(b[sortyBy])) {
+            return -1 * scending;
+          }
+        } else {
+          if (a[sortyBy] < b[sortyBy]) {
+            return -1 * scending;
+          }
+          if (a[sortyBy] > b[sortyBy]) {
+            return 1 * scending;
+          }
+        }
+      });
+    }
+
+    //console.log("dataToDisplay", dataToDisplay);
+
     const csvHeaders = [
       { label: "#", key: "rank" },
       { label: "影片名稱", key: "title" },
@@ -55,9 +92,30 @@ class VideoList extends Component {
             <th scope="col">#</th>
             <th scope="col">影片名稱</th>
             <th scope="col">長度</th>
-            <th scope="col">觀看數</th>
-            <th scope="col">youtuber</th>
-            <th scope="col">發佈於</th>
+            <th scope="col">
+              <a
+                onClick={this.onSortClick.bind(this, "viewCount")}
+                style={{ cursor: "pointer" }}
+              >
+                觀看數 {sortyBy === "viewCount" ? (asc ? "↑" : "↓") : ""}
+              </a>
+            </th>
+            <th scope="col">
+              <a
+                onClick={this.onSortClick.bind(this, "channelId")}
+                style={{ cursor: "pointer" }}
+              >
+                youtuber {sortyBy === "channelId" ? (asc ? "↑" : "↓") : ""}
+              </a>
+            </th>
+            <th scope="col">
+              <a
+                onClick={this.onSortClick.bind(this, "publishedAt")}
+                style={{ cursor: "pointer" }}
+              >
+                發佈於 {sortyBy === "publishedAt" ? (asc ? "↑" : "↓") : ""}
+              </a>
+            </th>
           </tr>
         </thead>
         <tbody>

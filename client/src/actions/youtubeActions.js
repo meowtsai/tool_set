@@ -4,9 +4,9 @@ import { GET_RANKING_LIST, GET_ERRORS, YOUTUBE_LOADING } from "./types";
 
 export const getRankinglist = searchObject => dispatch => {
   dispatch(setLoading());
-  let url = `https://www.googleapis.com/youtube/v3/search?part=id&order=viewCount&publishedAfter=${
-    searchObject.begin_time
-  }Z&publishedBefore=${
+  let url = `https://www.googleapis.com/youtube/v3/search?part=id&order=${
+    searchObject.sort_by
+  }&publishedAfter=${searchObject.begin_time}Z&publishedBefore=${
     searchObject.end_time
   }Z&maxResults=50&relevanceLanguage=zh-Hant&q=${searchObject.game_name} ${
     searchObject.keyword
@@ -31,7 +31,10 @@ export const getRankinglist = searchObject => dispatch => {
         .map(item => item.id.videoId)
         .join(",");
       const url_video = `https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&hl=zh-Hant&id=${search_video_ids}&maxResults=50&key=AIzaSyA1eg-j6R72gFWNC7k4Oem1hjLcJDpaU7U`;
+
+      //console.log("url_video", url_video);
       axios.get(url_video).then(res => {
+        console.log("res", res.data);
         dispatch({
           type: GET_RANKING_LIST,
           payload: { ...res.data, nextPageToken, prevPageToken }
