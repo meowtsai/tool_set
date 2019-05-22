@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import moment from "moment";
-
+import "./yt.css";
 import SelectListGroup from "../common/SelectListGroup";
 import TextFieldGroup from "../common/TextFieldGroup";
 import InputGroup from "../common/InputGroup";
@@ -28,7 +28,8 @@ class VideoRanking extends Component {
       errors: {},
       nextPageToken: "",
       prevPageToken: "",
-      pageNumber: 1
+      pageNumber: 1,
+      intervalId: 0
     };
     //begin_time: moment(edm.begin_time).format("YYYY-MM-DDTHH:mm") //2019-04-24T14:00
     //moment().subtract(10, 'days').calendar();
@@ -81,6 +82,19 @@ class VideoRanking extends Component {
     this.setState({ pageNumber: 1 });
     this.submitForm("");
   }
+  scrollStep() {
+    if (window.pageYOffset === 0) {
+      clearInterval(this.state.intervalId);
+    }
+    window.scroll(0, window.pageYOffset - this.props.scrollStepInPx);
+  }
+  scrollToTop() {
+    let intervalId = setInterval(
+      this.scrollStep.bind(this),
+      this.props.delayInMs
+    );
+    this.setState({ intervalId: intervalId });
+  }
 
   submitForm(pageToken) {
     let searchObject = {
@@ -117,7 +131,7 @@ class VideoRanking extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
   render() {
-    const { ranking_list, loading } = this.props.youtube;
+    const { ranking_list, loading, channel_list } = this.props.youtube;
     const {
       errors,
       game_name,
@@ -247,10 +261,44 @@ class VideoRanking extends Component {
               <div className="col-md-12">
                 <VideoList
                   videos={ranking_list.items}
+                  channels={channel_list.items}
                   copyToInput={this.copyToInput}
                   page={this.state.pageNumber}
                   fileName={fileName}
                 />
+
+                {this.state.prevPageToken !== "" && (
+                  <button
+                    type="button"
+                    className="btn btn-warning ml-2"
+                    onClick={this.getPrevPage}
+                    disabled={!isEmpty(errors)}
+                  >
+                    上一頁
+                  </button>
+                )}
+                {this.state.nextPageToken !== "" && (
+                  <button
+                    type="button"
+                    className="btn btn-warning ml-2"
+                    onClick={this.getNextPage}
+                    disabled={!isEmpty(errors)}
+                  >
+                    下一頁
+                  </button>
+                )}
+
+                {ranking_list.items && (
+                  <button
+                    title="回頁首"
+                    className="scroll"
+                    onClick={() => {
+                      this.scrollToTop();
+                    }}
+                  >
+                    <i className="fas fa-chevron-up" />
+                  </button>
+                )}
               </div>
             </div>
           </div>

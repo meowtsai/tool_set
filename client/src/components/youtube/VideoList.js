@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import moment from "moment";
 import { CSVLink } from "react-csv";
+import ChannelItem from "./ChannelItem";
 class VideoList extends Component {
   state = {
     sortyBy: "viewCount",
@@ -16,7 +17,7 @@ class VideoList extends Component {
   }
 
   render() {
-    const { videos, page, fileName } = this.props;
+    const { videos, page, fileName, channels } = this.props;
     const { sortyBy, asc } = this.state;
     //console.log(fileName);
 
@@ -166,6 +167,15 @@ class VideoList extends Component {
                   >
                     <i className="far fa-copy" />
                   </button>
+                  {channels && (
+                    <ChannelItem
+                      channel_detail={
+                        channels.filter(
+                          channel => channel.id === item.channelId
+                        )[0]
+                      }
+                    />
+                  )}
                 </td>
                 <td>{item.publishedAt}</td>
               </tr>

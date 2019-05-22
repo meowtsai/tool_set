@@ -1,6 +1,11 @@
 import axios from "axios";
 import isEmpty from "../validation/is-empty";
-import { GET_RANKING_LIST, GET_ERRORS, YOUTUBE_LOADING } from "./types";
+import {
+  GET_RANKING_LIST,
+  GET_ERRORS,
+  YOUTUBE_LOADING,
+  GET_CHANNEL_LIST
+} from "./types";
 
 export const getRankinglist = searchObject => dispatch => {
   dispatch(setLoading());
@@ -34,10 +39,35 @@ export const getRankinglist = searchObject => dispatch => {
 
       //console.log("url_video", url_video);
       axios.get(url_video).then(res => {
-        console.log("res", res.data);
         dispatch({
           type: GET_RANKING_LIST,
           payload: { ...res.data, nextPageToken, prevPageToken }
+        });
+
+        //console.log("res", res.data);
+
+        const channelId_array = res.data.items.map(item => {
+          return item.snippet.channelId;
+        });
+
+        //console.log("channelId_array", channelId_array);
+        let filtered_result = channelId_array.sort().reduce((init, current) => {
+          if (init.length === 0 || init[init.length - 1] !== current) {
+            init.push(current);
+          }
+          return init;
+        }, []);
+        //console.log("filtered_result", filtered_result);
+
+        const url_video = `https://www.googleapis.com/youtube/v3/channels?part=snippet%2Cstatistics&hl=zh-Hant&id=${filtered_result.join(
+          ","
+        )}&maxResults=50&key=AIzaSyA1eg-j6R72gFWNC7k4Oem1hjLcJDpaU7U`;
+
+        axios.get(url_video).then(res => {
+          dispatch({
+            type: GET_CHANNEL_LIST,
+            payload: { ...res.data, nextPageToken, prevPageToken }
+          });
         });
       });
     })

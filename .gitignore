@@ -7,3 +7,4 @@ jspm_packages/
 source/
 config/config.js
 controllers/test_count.js
+/test.html

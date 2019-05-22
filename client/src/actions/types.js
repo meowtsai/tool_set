@@ -11,4 +11,6 @@ export const DATA_LOADING = "DATA_LOADING";
 export const GET_CSV = "GET_CSV";
 
 export const GET_RANKING_LIST = "GET_RANKING_LIST";
+export const GET_CHANNEL_LIST = "GET_CHANNEL_LIST";
+
 export const YOUTUBE_LOADING = "YOUTUBE_LOADING";
