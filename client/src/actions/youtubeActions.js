@@ -1,5 +1,7 @@
 import axios from "axios";
 import isEmpty from "../validation/is-empty";
+import CONFIG from "./CONFIG";
+
 import {
   GET_RANKING_LIST,
   GET_ERRORS,
@@ -15,7 +17,7 @@ export const getRankinglist = searchObject => dispatch => {
     searchObject.end_time
   }Z&maxResults=50&relevanceLanguage=zh-Hant&q=${searchObject.game_name} ${
     searchObject.keyword
-  }&key=AIzaSyA1eg-j6R72gFWNC7k4Oem1hjLcJDpaU7U`;
+  }&relevanceLanguage=zh-Hant&key=${CONFIG.api_key}`;
 
   if (searchObject.channelId !== "") {
     url += `&channelId=${searchObject.channelId}`;
@@ -35,7 +37,9 @@ export const getRankinglist = searchObject => dispatch => {
       const search_video_ids = res.data.items
         .map(item => item.id.videoId)
         .join(",");
-      const url_video = `https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&hl=zh-Hant&id=${search_video_ids}&maxResults=50&key=AIzaSyA1eg-j6R72gFWNC7k4Oem1hjLcJDpaU7U`;
+      const url_video = `https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&hl=zh-Hant&id=${search_video_ids}&maxResults=50&key=${
+        CONFIG.api_key
+      }`;
 
       //console.log("url_video", url_video);
       axios.get(url_video).then(res => {
@@ -57,11 +61,11 @@ export const getRankinglist = searchObject => dispatch => {
           }
           return init;
         }, []);
-        //console.log("filtered_result", filtered_result);
+        //console.log("filtered_result", JSON.stringify(filtered_result));
 
         const url_video = `https://www.googleapis.com/youtube/v3/channels?part=snippet%2Cstatistics&hl=zh-Hant&id=${filtered_result.join(
           ","
-        )}&maxResults=50&key=AIzaSyA1eg-j6R72gFWNC7k4Oem1hjLcJDpaU7U`;
+        )}&maxResults=50&key=${CONFIG.api_key}`;
 
         axios.get(url_video).then(res => {
           dispatch({

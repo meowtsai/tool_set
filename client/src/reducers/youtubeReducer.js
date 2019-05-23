@@ -16,6 +16,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         ranking_list: action.payload,
+        channel_list: [],
         loading: false
       };
     case GET_CHANNEL_LIST:

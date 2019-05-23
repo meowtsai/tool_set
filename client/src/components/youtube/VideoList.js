@@ -92,7 +92,6 @@ class VideoList extends Component {
           <tr>
             <th scope="col">#</th>
             <th scope="col">影片名稱</th>
-            <th scope="col">長度</th>
             <th scope="col">
               <a
                 onClick={this.onSortClick.bind(this, "viewCount")}
@@ -146,10 +145,14 @@ class VideoList extends Component {
                         style={{ color: "#6c757d" }}
                       />
                       {item.commentCount}
+
+                      <span className="badge badge-dark ml-3 mr-1">
+                        {item.duration}
+                      </span>
                     </small>
                   </div>
                 </td>
-                <td>{item.duration}</td>
+
                 <td>{item.viewCount}</td>
                 <td>
                   <a href={item.Youtuber} target="_blank">

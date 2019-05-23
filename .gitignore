@@ -8,3 +8,5 @@ source/
 config/config.js
 controllers/test_count.js
 /test.html
+
+config.js
