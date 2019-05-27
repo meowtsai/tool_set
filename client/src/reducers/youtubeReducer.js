@@ -1,6 +1,7 @@
 import {
   GET_RANKING_LIST,
   YOUTUBE_LOADING,
+  CLEAR_LOADING,
   GET_CHANNEL_LIST
 } from "../actions/types";
 
@@ -31,6 +32,12 @@ export default function(state = initialState, action) {
         ...state,
         loading: true
       };
+    case CLEAR_LOADING:
+      return {
+        ...state,
+        loading: false
+      };
+
     default:
       return state;
   }

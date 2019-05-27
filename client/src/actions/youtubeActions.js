@@ -6,6 +6,7 @@ import {
   GET_RANKING_LIST,
   GET_ERRORS,
   YOUTUBE_LOADING,
+  CLEAR_LOADING,
   GET_CHANNEL_LIST
 } from "./types";
 
@@ -26,12 +27,14 @@ export const getRankinglist = searchObject => dispatch => {
     url += `&pageToken=${searchObject.pageToken}`;
   }
 
+  console.log(url);
+
   let nextPageToken, prevPageToken;
 
   axios
     .get(url)
     .then(res => {
-      //console.log(res.data);
+      console.log(JSON.stringify(res.data));
       nextPageToken = res.data.nextPageToken ? res.data.nextPageToken : "";
       prevPageToken = res.data.prevPageToken ? res.data.prevPageToken : "";
       const search_video_ids = res.data.items
@@ -75,15 +78,42 @@ export const getRankinglist = searchObject => dispatch => {
         });
       });
     })
-    .catch(err =>
-      dispatch({
-        type: GET_RANKING_LIST,
-        payload: []
-      })
-    );
+    .catch(err => {
+      //console.log(err.response.data.error.errors);
+      dispatch(clearLoading());
+      if (err.response.data.error) {
+        console.log("get_ranking", err.response.data.error.errors);
+        dispatch({
+          type: GET_ERRORS,
+          payload: { api_error: err.response.data.error.errors[0].message }
+        });
+      } else {
+        dispatch({
+          type: GET_ERRORS,
+          payload: err.response.data
+        });
+      }
+    });
 };
 
 export const setLoading = () => dispatch =>
   dispatch({
     type: YOUTUBE_LOADING
   });
+export const clearLoading = () => dispatch =>
+  dispatch({
+    type: CLEAR_LOADING
+  });
+// {
+//   "error": {
+//    "errors": [
+//     {
+//      "domain": "youtube.quota",
+//      "reason": "quotaExceeded",
+//      "message": "The request cannot be completed because you have exceeded your \u003ca href=\"/youtube/v3/getting-started#quota\"\u003equota\u003c/a\u003e."
+//     }
+//    ],
+//    "code": 403,
+//    "message": "The request cannot be completed because you have exceeded your \u003ca href=\"/youtube/v3/getting-started#quota\"\u003equota\u003c/a\u003e."
+//   }
+//  }

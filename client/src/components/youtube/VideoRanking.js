@@ -10,6 +10,8 @@ import { getRankinglist } from "../../actions/youtubeActions";
 import Spinner from "../common/Spinner";
 import VideoList from "./VideoList";
 import isEmpty from "../../validation/is-empty";
+import CONFIG from "../../actions/CONFIG";
+
 class VideoRanking extends Component {
   constructor(props) {
     super(props);
@@ -132,6 +134,8 @@ class VideoRanking extends Component {
   }
   render() {
     const { ranking_list, loading, channel_list } = this.props.youtube;
+    const yt_errors = this.props.errors.errors;
+    console.log("yt_errors", yt_errors);
     const {
       errors,
       game_name,
@@ -147,15 +151,9 @@ class VideoRanking extends Component {
       end_time +
       moment().format("YYYYMMDD");
     //console.log(this.state);
-    let options = [
-      { label: "第五人格", value: "第五人格" },
-      { label: "明日之後", value: "明日之後" },
-      { label: "決戰平安京", value: "決戰平安京" },
-      { label: "光明之戰", value: "光明之戰" },
-      { label: "權力與紛爭", value: "權力與紛爭" },
-      { label: "荒野行動", value: "荒野行動" },
-      { label: "遇見逆水寒", value: "遇見逆水寒" }
-    ];
+
+    let options = CONFIG.GameOptions;
+
     let sortByOptions = [
       { label: "觀看數", value: "viewCount" },
       { label: "發佈日期", value: "date" },
@@ -259,6 +257,11 @@ class VideoRanking extends Component {
             </div>
             <div className="row mb-4">
               <div className="col-md-12">
+                {!isEmpty(yt_errors.api_error) && (
+                  <div className="alert alert-danger">
+                    {yt_errors.api_error}
+                  </div>
+                )}
                 <VideoList
                   videos={ranking_list.items}
                   channels={channel_list.items}
