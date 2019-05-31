@@ -7,8 +7,54 @@ import {
   GET_ERRORS,
   YOUTUBE_LOADING,
   CLEAR_LOADING,
-  GET_CHANNEL_LIST
+  GET_CHANNEL_LIST,
+  GET_YT_REPORTS,
+  GET_YOUTUEBRS
 } from "./types";
+
+// router.post("/get_videos/:game_id", (req, res) => {
+//   const game_id = req.params.game_id;
+//   let search_criteria = ({ begin_date, end_date } = req.body);
+// export const editEDM = (edm_id, edmData, history) => dispatch => {
+//   dispatch(setEventsLoading());
+//   axios
+//     .post(`/api/edm/modify/${edm_id}`, edmData)
+
+export const getYtReports = (game_id, search_criteria) => dispatch => {
+  dispatch(setLoading());
+  axios
+    .post(`/api/youtube/get_videos/${game_id}`, search_criteria)
+    .then(res =>
+      dispatch({
+        type: GET_YT_REPORTS,
+        payload: res.data.msg
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_YT_REPORTS,
+        payload: []
+      })
+    );
+};
+
+export const getYoutubers = () => dispatch => {
+  dispatch(setLoading());
+  axios
+    .get(`/api/youtube/get_youtubers/`)
+    .then(res =>
+      dispatch({
+        type: GET_YOUTUEBRS,
+        payload: res.data.msg
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_YOUTUEBRS,
+        payload: []
+      })
+    );
+};
 
 export const getRankinglist = searchObject => dispatch => {
   dispatch(setLoading());

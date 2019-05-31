@@ -56,8 +56,11 @@ class VideoList extends Component {
 
       dataToDisplay.sort((a, b) => {
         if (sortyBy === "viewCount") {
-          if (parseInt(a[sortyBy]) - parseInt(b[sortyBy])) {
+          if (parseInt(a[sortyBy]) < parseInt(b[sortyBy])) {
             return -1 * scending;
+          }
+          if (parseInt(a[sortyBy]) > parseInt(b[sortyBy])) {
+            return 1 * scending;
           }
         } else {
           if (a[sortyBy] < b[sortyBy]) {

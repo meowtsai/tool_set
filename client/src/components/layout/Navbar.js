@@ -17,9 +17,16 @@ class Navbar extends Component {
                   GMT 分析
                 </Link>
               </li> */}
+
               <li className="nav-item active">
                 <Link to="/youtube/videoranking" className="nav-link">
                   Youtube 分析
+                </Link>
+              </li>
+
+              <li className="nav-item">
+                <Link to="/youtube/report/monthly" className="nav-link">
+                  Youtuber 月報表
                 </Link>
               </li>
             </ul>

@@ -15,6 +15,8 @@ import ConvertCSV from "./components/gmt/g66/ConvertCSV";
 import VideoRanking from "./components/youtube/VideoRanking";
 import NotFound from "./components/layout/NotFound";
 
+import Monthly from "./components/youtube/report/Monthly";
+
 function App() {
   return (
     <Provider store={store}>
@@ -33,6 +35,8 @@ function App() {
               path="/youtube/videoranking"
               component={VideoRanking}
             />
+
+            <Route exact path="/youtube/report/monthly" component={Monthly} />
 
             <Route path="/not-found" component={NotFound} />
           </div>

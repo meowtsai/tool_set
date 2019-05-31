@@ -12,6 +12,9 @@ export const GET_CSV = "GET_CSV";
 
 export const GET_RANKING_LIST = "GET_RANKING_LIST";
 export const GET_CHANNEL_LIST = "GET_CHANNEL_LIST";
+export const GET_YOUTUEBRS = "GET_YOUTUEBRS";
 
 export const YOUTUBE_LOADING = "YOUTUBE_LOADING";
 export const CLEAR_LOADING = "CLEAR_LOADING";
+
+export const GET_YT_REPORTS = "GET_YT_REPORTS";

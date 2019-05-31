@@ -2,12 +2,16 @@ import {
   GET_RANKING_LIST,
   YOUTUBE_LOADING,
   CLEAR_LOADING,
-  GET_CHANNEL_LIST
+  GET_CHANNEL_LIST,
+  GET_YT_REPORTS,
+  GET_YOUTUEBRS
 } from "../actions/types";
 
 const initialState = {
   ranking_list: [],
   channel_list: [],
+  youtubers: [],
+  yt_reports: [],
   loading: false
 };
 
@@ -24,6 +28,18 @@ export default function(state = initialState, action) {
       return {
         ...state,
         channel_list: action.payload,
+        loading: false
+      };
+    case GET_YT_REPORTS:
+      return {
+        ...state,
+        yt_reports: action.payload,
+        loading: false
+      };
+    case GET_YOUTUEBRS:
+      return {
+        ...state,
+        youtubers: action.payload,
         loading: false
       };
 
