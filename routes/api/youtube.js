@@ -9,7 +9,7 @@ const YoutuberVideo = require("../../models/videoModel");
 const config = require("../../config/config");
 
 const google_api_yt = "https://www.googleapis.com/youtube/v3";
-const isEmpty= require('../../validation/is-empty')
+const isEmpty = require("../../validation/is-empty");
 
 router.get("/get_rankinglist", (req, res) => {
   const game_name = req.query.game_name;
@@ -218,10 +218,9 @@ router.get("/fetch_videos/:yt_id", async (req, res) => {
 
 router.get("/fetch_videos_all", async (req, res) => {
   const d1 = "2019-05-01T00:00:00Z";
-  const d2 = "2019-05-28T00:00:00Z";
+  const d2 = "2019-05-31T23:59:59Z";
 
-  
-  if (isEmpty(req.query.keyword) || isEmpty(req.query.game_id)){
+  if (isEmpty(req.query.keyword) || isEmpty(req.query.game_id)) {
     res.send("No keyword & game_id params!");
     return;
   }
