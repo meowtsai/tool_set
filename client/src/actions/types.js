@@ -18,3 +18,6 @@ export const YOUTUBE_LOADING = "YOUTUBE_LOADING";
 export const CLEAR_LOADING = "CLEAR_LOADING";
 
 export const GET_YT_REPORTS = "GET_YT_REPORTS";
+
+export const GET_CHART_FILES = "GET_CHART_FILES";
+export const GET_CHART_DATA = "GET_CHART_DATA";

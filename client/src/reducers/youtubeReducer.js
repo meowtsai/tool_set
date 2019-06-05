@@ -4,7 +4,9 @@ import {
   CLEAR_LOADING,
   GET_CHANNEL_LIST,
   GET_YT_REPORTS,
-  GET_YOUTUEBRS
+  GET_YOUTUEBRS,
+  GET_CHART_FILES,
+  GET_CHART_DATA
 } from "../actions/types";
 
 const initialState = {
@@ -12,6 +14,8 @@ const initialState = {
   channel_list: [],
   youtubers: [],
   yt_reports: [],
+  chart_filenames: [],
+  chart_data: [],
   loading: false
 };
 
@@ -42,7 +46,18 @@ export default function(state = initialState, action) {
         youtubers: action.payload,
         loading: false
       };
-
+    case GET_CHART_FILES:
+      return {
+        ...state,
+        chart_filenames: action.payload,
+        loading: false
+      };
+    case GET_CHART_DATA:
+      return {
+        ...state,
+        chart_data: action.payload,
+        loading: false
+      };
     case YOUTUBE_LOADING:
       return {
         ...state,

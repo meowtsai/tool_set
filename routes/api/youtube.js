@@ -5,7 +5,8 @@ const axios = require("axios");
 const validateYoutuberInput = require("../../validation/v_youtuber");
 const Youtubers = require("../../models/youtuberModel");
 const YoutuberVideo = require("../../models/videoModel");
-
+const fs = require("fs");
+const path = require("path");
 const config = require("../../config/config");
 
 const google_api_yt = "https://www.googleapis.com/youtube/v3";
@@ -341,6 +342,37 @@ router.post("/get_videos/:game_id", (req, res) => {
       }
     })
     .catch(err => res.status(400).send({ status: -1, msg: err.message }));
+});
+
+//@route: GET /api/youtube/chart/getfiles
+//@desc: get all the files under cron/chart_data
+//@access: public
+router.get("/chart/getfiles", (req, res) => {
+  //console.log("getfiles called");
+  const directoryPath = path.join(__dirname, "../../cron/chart_data");
+  fs.readdir(directoryPath, function(err, files) {
+    //handling error
+    if (err) {
+      return res.status(400).send("Unable to scan directory: " + err);
+    }
+    //listing all files using forEach
+    res.send(files);
+  });
+});
+//@route: GET /api/youtube/chart/getdata/${filename}
+//@desc: get all the files under cron/chart_data
+//@access: public
+router.get("/chart/getfiles/:filename", (req, res) => {
+  const directoryPath = path.join(__dirname, "../../cron/chart_data");
+  const filename = req.params.filename;
+
+  fs.readFile(`${directoryPath}/${filename}.json`, (err, data) => {
+    if (err) {
+      return res.status(400).send("Unable to read file: " + err);
+    }
+
+    res.send(JSON.parse(data));
+  });
 });
 
 //

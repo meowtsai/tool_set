@@ -9,7 +9,9 @@ import {
   CLEAR_LOADING,
   GET_CHANNEL_LIST,
   GET_YT_REPORTS,
-  GET_YOUTUEBRS
+  GET_YOUTUEBRS,
+  GET_CHART_FILES,
+  GET_CHART_DATA
 } from "./types";
 
 // router.post("/get_videos/:game_id", (req, res) => {
@@ -140,6 +142,41 @@ export const getRankinglist = searchObject => dispatch => {
         });
       }
     });
+};
+export const getChartFiles = () => dispatch => {
+  dispatch(setLoading());
+  axios
+    .get(`/api/youtube/chart/getfiles`)
+    .then(res => {
+      //console.log("getChartFiles", res.data);
+      dispatch({
+        type: GET_CHART_FILES,
+        payload: res.data
+      });
+    })
+    .catch(err =>
+      dispatch({
+        type: GET_CHART_FILES,
+        payload: []
+      })
+    );
+};
+export const getChartData = filename => dispatch => {
+  dispatch(setLoading());
+  axios
+    .get(`/api/youtube/chart/getfiles/${filename}`)
+    .then(res =>
+      dispatch({
+        type: GET_CHART_DATA,
+        payload: res.data.items
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_CHART_DATA,
+        payload: {}
+      })
+    );
 };
 
 export const setLoading = () => dispatch =>

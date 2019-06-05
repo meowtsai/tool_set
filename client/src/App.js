@@ -16,6 +16,7 @@ import VideoRanking from "./components/youtube/VideoRanking";
 import NotFound from "./components/layout/NotFound";
 
 import Monthly from "./components/youtube/report/Monthly";
+import DailyChart from "./components/youtube/report/DailyChart";
 
 function App() {
   return (
@@ -37,6 +38,11 @@ function App() {
             />
 
             <Route exact path="/youtube/report/monthly" component={Monthly} />
+            <Route
+              exact
+              path="/youtube/report/daily_chart"
+              component={DailyChart}
+            />
 
             <Route path="/not-found" component={NotFound} />
           </div>

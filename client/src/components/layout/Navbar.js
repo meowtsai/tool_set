@@ -29,6 +29,12 @@ class Navbar extends Component {
                   Youtuber 月報表
                 </Link>
               </li>
+
+              <li className="nav-item">
+                <Link to="/youtube/report/daily_chart" className="nav-link">
+                  遊戲類人氣日報表
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
