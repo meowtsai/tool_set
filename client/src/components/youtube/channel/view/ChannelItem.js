@@ -14,9 +14,10 @@ class ChannelItem extends Component {
             style={{ borderRadius: "50%", width: "50%" }}
           />
         </td>
-        <td>{youtuber.subscriber_count}</td>
-        <td>{youtuber.video_count}</td>
-        <td>{youtuber.view_count}</td>
+
+        <td>{parseInt(youtuber.subscriber_count).toLocaleString()}</td>
+        <td>{parseInt(youtuber.video_count).toLocaleString()} </td>
+        <td>{parseInt(youtuber.view_count).toLocaleString()}</td>
         <td>
           {" "}
           <Moment format="YYYY-MM-DD HH:mm:ss">
