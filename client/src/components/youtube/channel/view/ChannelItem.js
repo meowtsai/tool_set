@@ -16,6 +16,7 @@ class ChannelItem extends Component {
         </td>
         <td>{youtuber.subscriber_count}</td>
         <td>{youtuber.video_count}</td>
+        <td>{youtuber.view_count}</td>
         <td>
           {" "}
           <Moment format="YYYY-MM-DD HH:mm:ss">

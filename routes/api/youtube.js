@@ -65,16 +65,16 @@ router.post("/channel/create", async (req, res) => {
   Youtubers.create(youtube_id).then(createResult => {
     if (createResult.status === 1) {
       //新增成功, 到youtube 取得即時資料
-      console.log("createResult", createResult);
+      //console.log("createResult", createResult);
       get_channel_by_id(youtube_id)
         .then(ggl_response => {
           //3. update one by one
 
           //const jObj = JSON.parse();
 
-          console.log("ggl_response", ggl_response);
+          //console.log("ggl_response", ggl_response);
           const items = ggl_response.items;
-          console.log(items);
+          //console.log(items);
           items.forEach(item => {
             const youtuber = {
               title: item.snippet.title,
