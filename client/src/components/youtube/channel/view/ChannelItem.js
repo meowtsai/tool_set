@@ -5,10 +5,17 @@ class ChannelItem extends Component {
     const { youtuber } = this.props;
     return (
       <tr>
-        <th scope="row" />
-        <td>{youtuber.title}</td>
-        <td>{youtuber.id}</td>
-
+        <td>
+          <strong>{youtuber.title}</strong> <br /> ( 頻道 ID: {youtuber.id})
+        </td>
+        <td>
+          <img
+            src={youtuber.thumbnails}
+            style={{ borderRadius: "50%", width: "50%" }}
+          />
+        </td>
+        <td>{youtuber.subscriber_count}</td>
+        <td>{youtuber.video_count}</td>
         <td>
           {" "}
           <Moment format="YYYY-MM-DD HH:mm:ss">
@@ -21,8 +28,7 @@ class ChannelItem extends Component {
             {youtuber.update_time}
           </Moment>{" "}
         </td>
-        <td>{youtuber.subscriber_count}</td>
-        <td>{youtuber.video_count}</td>
+
         <td />
       </tr>
     );

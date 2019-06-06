@@ -10,13 +10,13 @@ class ChannelList extends Component {
       <table className="table table-bordered small">
         <thead>
           <tr>
-            <th scope="col">#</th>
             <th scope="col">名稱</th>
-            <th scope="col">代碼</th>
-            <th scope="col">建立時間</th>
-            <th scope="col">更新時間</th>
+            <th scope="col">圖</th>
             <th scope="col">訂閱數 </th>
             <th scope="col">影片數 </th>
+            <th scope="col">建立時間</th>
+            <th scope="col">更新時間</th>
+
             <th scope="col">操作</th>
           </tr>
         </thead>
