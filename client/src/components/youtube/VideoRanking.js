@@ -162,7 +162,7 @@ class VideoRanking extends Component {
 
     return (
       <div className="container">
-        <h3 className="mt-4 mb-4">熱門 Youtube 影片</h3>
+        <h3 className="mt-4 mb-4">★ 影片搜尋</h3>
         {loading ? (
           <Spinner />
         ) : (

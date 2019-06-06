@@ -18,6 +18,10 @@ import NotFound from "./components/layout/NotFound";
 import Monthly from "./components/youtube/report/Monthly";
 import DailyChart from "./components/youtube/report/DailyChart";
 
+import ChannelHome from "./components/youtube/channel/view/ChannelHome";
+
+import CreateChannel from "./components/youtube/channel/create/CreateChannel";
+
 function App() {
   return (
     <Provider store={store}>
@@ -42,6 +46,12 @@ function App() {
               exact
               path="/youtube/report/daily_chart"
               component={DailyChart}
+            />
+            <Route exact path="/youtube/channel/list" component={ChannelHome} />
+            <Route
+              exact
+              path="/youtube/channel/create-channel"
+              component={CreateChannel}
             />
 
             <Route path="/not-found" component={NotFound} />

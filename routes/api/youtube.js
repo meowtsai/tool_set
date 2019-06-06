@@ -53,24 +53,51 @@ router.get("/get_youtuber/:youtuber_id", (req, res) => {
     .catch(err => res.status(400).send({ status: -1, msg: err.message }));
 });
 
-//@route: POST /api/youtube/create
+//@route: POST /api/youtube/channel/create
 //@desc: create an edm
 //@access: public
-router.post("/create", (req, res) => {
+router.post("/channel/create", async (req, res) => {
   const { errors, isValid } = validateYoutuberInput(req.body);
   if (!isValid) {
     return res.status(400).json(errors);
   }
   let youtube_id = req.body.id;
-  Youtubers.create(youtube_id)
-    .then(createResult => {
-      if (createResult.status === 1) {
-        res.send(createResult);
-      } else {
-        res.status(400).send(createResult);
-      }
-    })
-    .catch(err => res.status(400).send({ status: -1, msg: err.message }));
+  Youtubers.create(youtube_id).then(createResult => {
+    if (createResult.status === 1) {
+      //新增成功, 到youtube 取得即時資料
+      console.log("createResult", createResult);
+      get_channel_by_id(youtube_id)
+        .then(ggl_response => {
+          //3. update one by one
+
+          //const jObj = JSON.parse();
+
+          console.log("ggl_response", ggl_response);
+          const items = ggl_response.items;
+          console.log(items);
+          items.forEach(item => {
+            const youtuber = {
+              title: item.snippet.title,
+              published_at: new Date(item.snippet.publishedAt),
+              thumbnails: item.snippet.thumbnails.default.url,
+              update_time: new Date(),
+              country: item.snippet.country,
+              view_count: item.statistics.viewCount,
+              subscriber_count: item.statistics.subscriberCount,
+              video_count: item.statistics.videoCount
+            };
+            console.log(youtuber);
+            Youtubers.modify(item.id, youtuber);
+          });
+          res.send(createResult);
+        })
+        .catch(function(error) {
+          return res.status(400).json(error.message);
+        });
+    } else {
+      res.status(400).json({ id: "重複輸入" + createResult.msg });
+    }
+  });
 });
 
 //@route: POST /api/edm/modify/:edm_id
@@ -407,89 +434,18 @@ async function get_videos_by_idlist(idList) {
   const rtnData = await axios.get(url);
   return rtnData.data;
 }
+
+async function get_channel_by_id(channel_id) {
+  //console.log(channel_id);
+  const url =
+    google_api_yt +
+    `/channels?part=snippet,statistics&id=${channel_id}&maxResults=50&key=${
+      config.api_key
+    }`;
+
+  //console.log(url);
+  const rtnData = await axios.get(url);
+  //console.log(rtnData.data);
+  return rtnData.data;
+}
 module.exports = router;
-
-// {
-//   "kind": "youtube#searchListResponse",
-//   "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/Opca8J64Wo-fMYuwyU6fkP82NBI\"",
-//   "nextPageToken": "CDIQAA",
-//   "regionCode": "TW",
-//   "pageInfo": {
-//    "totalResults": 119,
-//    "resultsPerPage": 50
-//   },
-//   "items": [
-//    {
-//     "kind": "youtube#searchResult",
-//     "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/VrW3SHirHju9s5ZTDadCzg8XzCA\"",
-//     "id": {
-//      "kind": "youtube#video",
-//      "videoId": "I7jU7gv_fqk"
-//     }
-
-// {
-//   "kind": "youtube#videoListResponse",
-//   "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/F4guKDg4IZixuXIAY4df2_JZmcc\"",
-//   "pageInfo": {
-//       "totalResults": 50,
-//       "resultsPerPage": 50
-//   },
-//   "items": [
-//       {
-//           "kind": "youtube#video",
-//           "etag": "\"XpPGQXPnxQJhLgs6enD_n8JR4Qk/927FQ4npR7s_XZjve_bILLZhdQ0\"",
-//           "id": "I7jU7gv_fqk",
-//           "snippet": {
-//               "publishedAt": "2019-05-05T07:31:01.000Z",
-//               "channelId": "UC0nDjH1yo1gRvO29UhJGOfA",
-//               "title": "【第五人格共研服】五排模式 上線共研服！∑(ﾟДﾟ) 5v5全新排位模式！好正式的感覺！ps:偶遇虛偽‼︎",
-//               "description": "",
-//               "thumbnails": {
-//                   "default": {
-//                       "url": "https://i.ytimg.com/vi/I7jU7gv_fqk/default.jpg",
-//                       "width": 120,
-//                       "height": 90
-//                   },
-//                   "medium": {
-//                       "url": "https://i.ytimg.com/vi/I7jU7gv_fqk/mqdefault.jpg",
-//                       "width": 320,
-//                       "height": 180
-//                   },
-//                   "high": {
-//                       "url": "https://i.ytimg.com/vi/I7jU7gv_fqk/hqdefault.jpg",
-//                       "width": 480,
-//                       "height": 360
-//                   },
-//                   "standard": {
-//                       "url": "https://i.ytimg.com/vi/I7jU7gv_fqk/sddefault.jpg",
-//                       "width": 640,
-//                       "height": 480
-//                   },
-//                   "maxres": {
-//                       "url": "https://i.ytimg.com/vi/I7jU7gv_fqk/maxresdefault.jpg",
-//                       "width": 1280,
-//                       "height": 720
-//                   }
-//               },
-//               "channelTitle": "阿拉蕾",
-//               "tags": [
-//                   "第五人格",
-//                   "阿拉蕾",
-//                   "共研服"
-//               ],
-//               "categoryId": "20",
-//               "liveBroadcastContent": "none",
-//               "localized": {
-//                   "title": "【第五人格共研服】五排模式 上線共研服！∑(ﾟДﾟ) 5v5全新排位模式！好正式的感覺！ps:偶遇虛偽‼︎",
-//                   "description": ""
-//               },
-//               "defaultAudioLanguage": "zh-TW"
-//           },
-//           "statistics": {
-//               "viewCount": "73638",
-//               "likeCount": "1532",
-//               "dislikeCount": "66",
-//               "favoriteCount": "0",
-//               "commentCount": "379"
-//           }
-//       },

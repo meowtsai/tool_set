@@ -187,16 +187,15 @@ export const clearLoading = () => dispatch =>
   dispatch({
     type: CLEAR_LOADING
   });
-// {
-//   "error": {
-//    "errors": [
-//     {
-//      "domain": "youtube.quota",
-//      "reason": "quotaExceeded",
-//      "message": "The request cannot be completed because you have exceeded your \u003ca href=\"/youtube/v3/getting-started#quota\"\u003equota\u003c/a\u003e."
-//     }
-//    ],
-//    "code": 403,
-//    "message": "The request cannot be completed because you have exceeded your \u003ca href=\"/youtube/v3/getting-started#quota\"\u003equota\u003c/a\u003e."
-//   }
-//  }
+
+export const createChannel = (ChannelData, history) => dispatch => {
+  axios
+    .post("/api/youtube/channel/create", ChannelData)
+    .then(res => history.push("/youtube/channel/list"))
+    .catch(err => {
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      });
+    });
+};

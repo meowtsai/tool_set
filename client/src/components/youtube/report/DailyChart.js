@@ -33,6 +33,10 @@ class DailyChart extends Component {
   }
   onSubmit(e) {
     e.preventDefault();
+    if (isEmpty(this.state.report_day)) {
+      alert("請選擇要查看的報表!");
+      return;
+    }
     const filename = this.state.report_day;
 
     //console.log(game.game_id);
@@ -102,7 +106,17 @@ class DailyChart extends Component {
     }
     return (
       <div className="container">
-        <h3 className="mt-4 mb-4">Youtube 熱門遊戲日報表</h3>
+        <nav aria-label="breadcrumb">
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item">
+              <a href="#">Home</a>
+            </li>
+            <li className="breadcrumb-item active" aria-current="page">
+              Youtube
+            </li>
+          </ol>
+        </nav>
+        <h3 className="mt-4 mb-4">🔥 遊戲類發燒日報表</h3>
         {loading ? (
           <Spinner />
         ) : (
@@ -182,7 +196,7 @@ class DailyChart extends Component {
                       chart_data
                         .filter(item => item.snippet.categoryId === "20")
                         .map((item, index) => (
-                          <tr key={item.channelId}>
+                          <tr key={item.index}>
                             <th scope="row">{index + 1}</th>
                             <td className="text-left">{item.snippet.title}</td>
                             <td className="text-right">
