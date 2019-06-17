@@ -5,7 +5,7 @@ import moment from "moment";
 import "moment-timezone";
 import InputGroup from "../../common/InputGroup";
 import { getH54Complaint } from "../../../actions/gmtActions";
-import CONFIG from "../../actions/CONFIG";
+import CONFIG from "../../../actions/CONFIG";
 
 class ComplaintReport extends Component {
   state = {
