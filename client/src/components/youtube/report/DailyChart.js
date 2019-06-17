@@ -9,7 +9,6 @@ import { getChartFiles, getChartData } from "../../../actions/youtubeActions";
 import Spinner from "../../common/Spinner";
 import { CSVLink } from "react-csv";
 import isEmpty from "../../../validation/is-empty";
-import CONFIG from "../../../actions/CONFIG";
 
 class DailyChart extends Component {
   constructor(props) {
@@ -48,7 +47,7 @@ class DailyChart extends Component {
   }
   render() {
     const { chart_filenames, loading, chart_data } = this.props.youtube;
-    const { sortyBy, asc, game_name, yyyymm } = this.state;
+    const { sortyBy, asc, yyyymm } = this.state;
     const fileName = `chart_games_${yyyymm}`;
 
     const errors = this.props.errors.errors;
@@ -101,6 +100,7 @@ class DailyChart extends Component {
             return 1 * scending;
           }
         }
+        return 1 * scending;
       });
       //console.log("yt_reports", yt_reports);
     }
@@ -109,14 +109,21 @@ class DailyChart extends Component {
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
             <li className="breadcrumb-item">
-              <a href="#">Home</a>
+              <span>Home</span>
             </li>
             <li className="breadcrumb-item active" aria-current="page">
               Youtube
             </li>
           </ol>
         </nav>
-        <h3 className="mt-4 mb-4">🔥 遊戲類發燒日報表</h3>
+
+        <h3 className="mt-4 mb-4">
+          <span role="img" aria-label="hot">
+            {" "}
+            🔥{" "}
+          </span>
+          遊戲類發燒日報表
+        </h3>
         {loading ? (
           <Spinner />
         ) : (
@@ -162,31 +169,31 @@ class DailyChart extends Component {
                       <th scope="col">#</th>
                       <th scope="col">影片名稱</th>
                       <th scope="col">
-                        <a
+                        <span
                           onClick={this.onSortClick.bind(this, "viewCount")}
                           style={{ cursor: "pointer" }}
                         >
                           觀看數{" "}
                           {sortyBy === "viewCount" ? (asc ? "↑" : "↓") : ""}
-                        </a>
+                        </span>
                       </th>
                       <th scope="col">
-                        <a
+                        <span
                           onClick={this.onSortClick.bind(this, "channelId")}
                           style={{ cursor: "pointer" }}
                         >
                           youtuber{" "}
                           {sortyBy === "channelId" ? (asc ? "↑" : "↓") : ""}
-                        </a>
+                        </span>
                       </th>
                       <th scope="col">
-                        <a
+                        <span
                           onClick={this.onSortClick.bind(this, "publishedAt")}
                           style={{ cursor: "pointer" }}
                         >
                           發佈於{" "}
                           {sortyBy === "publishedAt" ? (asc ? "↑" : "↓") : ""}
-                        </a>
+                        </span>
                       </th>
                     </tr>
                   </thead>

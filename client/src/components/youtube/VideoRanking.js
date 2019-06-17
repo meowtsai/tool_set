@@ -139,7 +139,6 @@ class VideoRanking extends Component {
     const {
       errors,
       game_name,
-      sort_by,
       channelTitle,
       begin_time,
       end_time

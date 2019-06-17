@@ -73,7 +73,7 @@ class Monthly extends Component {
       { label: "喜歡", key: "like_count" },
       { label: "不喜歡", key: "dislike_count" }
     ];
-    let options = CONFIG.GameOptions;
+    //let options = CONFIG.GameOptions;
     let yy_options = [
       { label: "2019-05", value: "2019-05" },
       { label: "2019-04", value: "2019-04" },
@@ -100,15 +100,16 @@ class Monthly extends Component {
             return 1 * scending;
           }
         }
+        return 1 * scending;
       });
-      console.log("yt_reports", yt_reports);
+      //console.log("yt_reports", yt_reports);
     }
     return (
       <div className="container">
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
             <li className="breadcrumb-item">
-              <a href="#">Home</a>
+              <span>Home</span>
             </li>
             <li className="breadcrumb-item active" aria-current="page">
               Youtube
@@ -116,7 +117,13 @@ class Monthly extends Component {
           </ol>
         </nav>
 
-        <h3 className="mt-4 mb-4">📅 Youtuber 月報表</h3>
+        <h3 className="mt-4 mb-4">
+          <span role="img" aria-label="report">
+            {" "}
+            📅{" "}
+          </span>
+          Youtuber 月報表
+        </h3>
         {loading ? (
           <Spinner />
         ) : (
@@ -160,41 +167,41 @@ class Monthly extends Component {
                   <thead>
                     <tr>
                       <th scope="col">
-                        <a
+                        <span
                           onClick={this.onSortClick.bind(this, "game_name")}
                           style={{ cursor: "pointer" }}
                         >
                           遊戲名稱{" "}
                           {sortyBy === "game_name" ? (asc ? "↑" : "↓") : ""}
-                        </a>
+                        </span>
                       </th>
                       <th scope="col">
-                        <a
+                        <span
                           onClick={this.onSortClick.bind(this, "title")}
                           style={{ cursor: "pointer" }}
                         >
                           Youtuber{" "}
                           {sortyBy === "title" ? (asc ? "↑" : "↓") : ""}
-                        </a>
+                        </span>
                       </th>
                       <th scope="col">
-                        <a
+                        <span
                           onClick={this.onSortClick.bind(this, "video_count")}
                           style={{ cursor: "pointer" }}
                         >
                           影片數{" "}
                           {sortyBy === "video_count" ? (asc ? "↑" : "↓") : ""}
-                        </a>
+                        </span>
                       </th>
                       <th scope="col">
                         {" "}
-                        <a
+                        <span
                           onClick={this.onSortClick.bind(this, "view_count")}
                           style={{ cursor: "pointer" }}
                         >
                           觀看數{" "}
                           {sortyBy === "view_count" ? (asc ? "↑" : "↓") : ""}
-                        </a>
+                        </span>
                       </th>
                       <th scope="col">
                         <i

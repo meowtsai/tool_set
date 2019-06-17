@@ -9,6 +9,7 @@ class ChannelItem extends Component {
           <div className="row">
             <div className="col-1">
               <img
+                alt={channel_detail.snippet.description}
                 className="yt-avatar"
                 width="25%"
                 src={channel_detail.snippet.thumbnails.default.url}

@@ -83,7 +83,7 @@ class ConvertCSV extends Component {
               console.log(`line${item_attr_str}`, e.message);
             }
 
-            tabs.push(`\'${allItems.join(",")}`);
+            tabs.push(`'${allItems.join(",")}`);
           }
 
           csvData.push(tabs);

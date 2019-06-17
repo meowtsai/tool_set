@@ -1,19 +1,34 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 class Navbar extends Component {
   render() {
-    const yt_menu = [
-      { label: "★ 影片搜尋", link: "/youtube/videoranking" },
-      { label: "📅 Youtuber 月報表", link: "/youtube/report/monthly" },
-      { label: "🔥 遊戲類發燒日報表", link: "/youtube/report/daily_chart" },
-      { label: "😎 關注頻道主列表", link: "/youtube/channel/list" }
-    ];
+    //console.log("Navbar", this.props);
+    const { location } = this.props;
+    let navbar_data = { icon: "", title: "", menu: [] };
+    if (location.pathname.split("/")[1] === "gmt") {
+      navbar_data = {
+        icon: "fas fa-clipboard-list text-dark",
+        title: "GMT 工具",
+        menu: [{ label: "😖 海島檢舉分析報表", link: "/gmt/h54/complaint" }]
+      };
+    } else {
+      navbar_data = {
+        icon: "fab fa-youtube text-danger",
+        title: "Youtube Data",
+        menu: [
+          { label: "★ 影片搜尋", link: "/youtube/videoranking" },
+          { label: "📅 Youtuber 月報表", link: "/youtube/report/monthly" },
+          { label: "🔥 遊戲類發燒日報表", link: "/youtube/report/daily_chart" },
+          { label: "😎 關注頻道主列表", link: "/youtube/channel/list" }
+        ]
+      };
+    }
 
     return (
       <nav className="navbar navbar-expand-md navbar-dark  fixed-top bd-navbar">
         <div className="container">
           <div className="dropdown">
-            <a
+            <span
               className="btn btn-info dropdown-toggle"
               href="#"
               role="button"
@@ -22,13 +37,17 @@ class Navbar extends Component {
               aria-haspopup="true"
               aria-expanded="false"
             >
-              <i className="fab fa-youtube text-danger" /> Youtube Data
-            </a>
+              <i className={navbar_data.icon} /> {navbar_data.title}
+            </span>
 
             <div className="dropdown-menu">
-              {yt_menu &&
-                yt_menu.map(menu => (
-                  <Link to={menu.link} className="dropdown-item">
+              {navbar_data.menu &&
+                navbar_data.menu.map(menu => (
+                  <Link
+                    to={menu.link}
+                    className="dropdown-item"
+                    key={menu.link}
+                  >
                     {menu.label}
                   </Link>
                 ))}
@@ -39,4 +58,4 @@ class Navbar extends Component {
     );
   }
 }
-export default Navbar;
+export default withRouter(Navbar);

@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import TextFieldGroup from "../../../common/TextFieldGroup";
 import { createChannel } from "../../../../actions/youtubeActions";
-import isEmpty from "../../../../validation/is-empty";
+//import isEmpty from "../../../../validation/is-empty";
 class CreateChannel extends Component {
   constructor(props) {
     super(props);

@@ -70,6 +70,7 @@ class VideoList extends Component {
             return 1 * scending;
           }
         }
+        return 1 * scending;
       });
     }
 
@@ -96,28 +97,28 @@ class VideoList extends Component {
             <th scope="col">#</th>
             <th scope="col">影片名稱</th>
             <th scope="col">
-              <a
+              <span
                 onClick={this.onSortClick.bind(this, "viewCount")}
                 style={{ cursor: "pointer" }}
               >
                 觀看數 {sortyBy === "viewCount" ? (asc ? "↑" : "↓") : ""}
-              </a>
+              </span>
             </th>
             <th scope="col">
-              <a
+              <span
                 onClick={this.onSortClick.bind(this, "channelId")}
                 style={{ cursor: "pointer" }}
               >
                 youtuber {sortyBy === "channelId" ? (asc ? "↑" : "↓") : ""}
-              </a>
+              </span>
             </th>
             <th scope="col">
-              <a
+              <span
                 onClick={this.onSortClick.bind(this, "publishedAt")}
                 style={{ cursor: "pointer" }}
               >
                 發佈於 {sortyBy === "publishedAt" ? (asc ? "↑" : "↓") : ""}
-              </a>
+              </span>
             </th>
           </tr>
         </thead>
@@ -127,7 +128,7 @@ class VideoList extends Component {
               <tr key={item.id}>
                 <th scope="row">{item.rank}</th>
                 <td>
-                  <a href={item.url} target="_blank">
+                  <a href={item.url} target="_blank" rel="noopener noreferrer">
                     <strong>{item.title}</strong>
                   </a>
                   <br />
@@ -158,7 +159,11 @@ class VideoList extends Component {
 
                 <td>{item.viewCount}</td>
                 <td>
-                  <a href={item.Youtuber} target="_blank">
+                  <a
+                    href={item.Youtuber}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {item.channelTitle}
                   </a>
 
