@@ -3,9 +3,7 @@ const config = require("../config/config");
 const moment = require("moment");
 const nodemailer = require("nodemailer");
 const smtp_server = config["smtp_server"];
-const url = `http://h54hmt.gameop.easebar.com/logs/h54hmt/report/${moment().format(
-  "YYYYMMDD"
-)}.log`;
+const url = `${config["h54_url_prefix"]}${moment().format("YYYYMMDD")}.log`;
 
 axios
   .get(url, {

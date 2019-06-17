@@ -5,13 +5,11 @@ import moment from "moment";
 import "moment-timezone";
 import InputGroup from "../../common/InputGroup";
 import { getH54Complaint } from "../../../actions/gmtActions";
+import CONFIG from "../../actions/CONFIG";
 
 class ComplaintReport extends Component {
   state = {
-    url:
-      "http://h54hmt.gameop.easebar.com/logs/h54hmt/report/" +
-      moment().format("YYYYMMDD") +
-      ".log"
+    url: CONFIG.h54_url_prefix + moment().format("YYYYMMDD") + ".log"
     //formated_data: []
   };
   onChange = e => {
@@ -175,7 +173,7 @@ class ComplaintReport extends Component {
                 value={this.state.url}
                 onChange={this.onChange.bind(this)}
                 error={errors.url}
-                info="輸入URL 例如: http://h54hmt.gameop.easebar.com/logs/h54hmt/report/20190608.log"
+                info="輸入URL"
                 icon="fas fa-globe"
               />
               <input type="submit" value="確定" className="btn btn-info" />
