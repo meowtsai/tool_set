@@ -105,6 +105,8 @@ const send_mail = list => {
   let transporter = nodemailer.createTransport(smtp_server);
 
   const html_template = list.join("<br />");
+  html_template +=
+    "<br /> 詳情可前往 <a href='https://manager.longeplay.com.tw:5000/gmt/h54/complaint'> 海島檢舉分析報表</a>查看。";
 
   let mailOptions = {
     from: '"海島Log" <no-reply@longeplay.com.tw>', // sender address
