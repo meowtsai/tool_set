@@ -1,8 +1,8 @@
-const db = require("./db_conn");
+const { db1, db2 } = require("./db_conn");
 
 const Youtuber = {
   get_all: async () => {
-    return await db
+    return await db2
       .promise()
       .query(
         `select id, title, published_at, update_time,thumbnails, country,view_count , subscriber_count, video_count
@@ -15,7 +15,7 @@ const Youtuber = {
       });
   },
   get_one: async id => {
-    return await db
+    return await db2
       .promise()
       .query(
         `select id, title, published_at, update_time,thumbnails, country,view_count , subscriber_count, video_count
@@ -29,7 +29,7 @@ const Youtuber = {
       });
   },
   create: async id => {
-    return await db
+    return await db1
       .promise()
       .query("insert into youtubers set id=?", id)
       .then(([rows, fields]) => {
@@ -44,7 +44,7 @@ const Youtuber = {
       });
   },
   modify: async (id, yt_data) => {
-    return await db
+    return await db1
       .promise()
       .query("update youtubers set ? where id=?", [yt_data, id])
       .then(([rows, fields]) => {
@@ -59,7 +59,7 @@ const Youtuber = {
       });
   },
   delete: async id => {
-    return await db
+    return await db1
       .promise()
       .query("delete from youtubers where id=?", [id])
       .then(([rows, fields]) => {

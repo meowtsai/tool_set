@@ -1,8 +1,8 @@
-const db = require("./db_conn");
+const { db1, db2 } = require("./db_conn");
 
 const EDM = {
   createEDM: async edm => {
-    return await db
+    return await db1
       .promise()
       .query("insert into edms set ?", edm)
       .then(([rows, fields]) => {
@@ -18,7 +18,7 @@ const EDM = {
       });
   },
   modifyEDM: async (edm_id, edm) => {
-    return await db
+    return await db1
       .promise()
       .query("update edms set ? where id=?", [edm, edm_id])
       .then(([rows, fields]) => {
@@ -34,7 +34,7 @@ const EDM = {
       });
   },
   deleteEDM: async edm_id => {
-    return await db
+    return await db1
       .promise()
       .query("delete from edms where id=?", [edm_id])
       .then(([rows, fields]) => {
@@ -50,7 +50,7 @@ const EDM = {
       });
   },
   getEDMs: async () => {
-    return await db
+    return await db2
       .promise()
       .query(
         `select a.id, a.event_id, a.title, a.create_time,a.status,a.mail_title,a.mail_content,a.begin_time,a.status ,
@@ -66,7 +66,7 @@ const EDM = {
   },
 
   getEDMById: async edm_id => {
-    return await db
+    return await db2
       .promise()
       .query(
         `select a.id, a.event_id, a.title, a.create_time,a.status,a.mail_title,a.mail_content,a.begin_time,a.status ,

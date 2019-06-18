@@ -1,6 +1,7 @@
 const axios = require("axios");
 const config = require("../config/config");
-const db = require("../models/db_conn");
+const { db1, db2 } = require("../models/db_conn");
+
 // const path = require("path");
 // const fs = require("fs");
 const moment = require("moment");
@@ -8,7 +9,7 @@ const url = `${config["h54_url_prefix"]}/prepaid/${moment().format(
   "YYYYMMDD"
 )}.log`;
 
-//const url = "http://h54hmt.gameop.easebar.com/logs/h54hmt/prepaid/20190607.log";
+//const url = "http://h54hmt.gameop.easebar.com/logs/h54hmt/prepaid/20190606.log";
 // 1. get log
 axios
   .get(url, {
@@ -79,7 +80,7 @@ const prepaid_report = prepaid => {
 };
 
 const create_order = trxObj => {
-  db.query("INSERT INTO negame_orders SET ?", trxObj, function(
+  db2.query("INSERT INTO negame_orders SET ?", trxObj, function(
     error,
     results,
     fields
