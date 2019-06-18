@@ -5,9 +5,9 @@ const { db1, db2 } = require("../models/db_conn");
 // const path = require("path");
 // const fs = require("fs");
 const moment = require("moment");
-const url = `${config["h54_url_prefix"]}/prepaid/${moment().format(
-  "YYYYMMDD"
-)}.log`;
+const url = `${config["h54_url_prefix"]}/prepaid/${moment()
+  .subtract(1, "days")
+  .format("YYYYMMDD")}.log`;
 
 //const url = "http://h54hmt.gameop.easebar.com/logs/h54hmt/prepaid/20190606.log";
 // 1. get log
