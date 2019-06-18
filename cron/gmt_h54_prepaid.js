@@ -8,7 +8,7 @@ const url = `${config["h54_url_prefix"]}/prepaid/${moment().format(
   "YYYYMMDD"
 )}.log`;
 
-//const url = "http://h54hmt.gameop.easebar.com/logs/h54hmt/prepaid/20190530.log";
+//const url = "http://h54hmt.gameop.easebar.com/logs/h54hmt/prepaid/20190607.log";
 // 1. get log
 axios
   .get(url, {
@@ -31,6 +31,10 @@ axios
     for (let index = 0; index < data.length; index++) {
       create_order(data[index]);
     }
+
+    setTimeout(function() {
+      process.exit(1);
+    }, 30000);
 
     //console.log(data);
   })

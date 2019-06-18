@@ -1,7 +1,7 @@
 const mysql = require("mysql2");
 
 const env = process.env.NODE_ENV ? process.env.NODE_ENV : "development";
-const CONFIG = require("../config/config")[env];
+const CONFIG = require("../config/config")["db"];
 
 // create the connection to database
 const pool = mysql.createPool({
