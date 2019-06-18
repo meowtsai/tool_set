@@ -76,7 +76,7 @@ class ComplaintReport extends Component {
       //console.log("summary", summary);
 
       summary_data = Object.keys(summary).map((obj, index) => {
-        if (summary[obj].rpt_count > 5) {
+        if (summary[obj].rpt_count > 4) {
           return (
             <div key={index} className="alert alert-danger small">
               {" "}

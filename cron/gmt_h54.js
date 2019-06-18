@@ -3,7 +3,9 @@ const config = require("../config/config");
 const moment = require("moment");
 const nodemailer = require("nodemailer");
 const smtp_server = config["smtp_server"];
-const url = `${config["h54_url_prefix"]}${moment().format("YYYYMMDD")}.log`;
+const url = `${config["h54_url_prefix"]}/report/${moment().format(
+  "YYYYMMDD"
+)}.log`;
 
 axios
   .get(url, {
@@ -106,7 +108,7 @@ const send_mail = list => {
 
   let html_template = list.join("<br />");
   html_template +=
-    "<br /> 詳情可前往 <a href='https://manager.longeplay.com.tw:5000/gmt/h54/complaint'> 海島檢舉分析報表</a>查看。";
+    "<br /><br /> 詳情可前往 <a href='https://manager.longeplay.com.tw:5000/gmt/h54/complaint'> 海島檢舉分析報表</a>查看。";
 
   let mailOptions = {
     from: '"海島Log" <no-reply@longeplay.com.tw>', // sender address
