@@ -10,7 +10,7 @@ const url = `${config["h54_url_prefix"]}/prepaid/${moment()
   .subtract(1, "days")
   .format("YYYYMMDD")}.log`;
 
-const game_id = "H54";
+const GAME_ID = "H54";
 //const url = "http://h54hmt.gameop.easebar.com/logs/h54hmt/prepaid/20190606.log";
 // 1. get log
 axios
@@ -74,7 +74,7 @@ const prepaid_report = prepaid => {
         product_id: trxObj.prepaid_detail.pid,
         amount: trxObj.prepaid_detail.price * 5,
         ip: trxObj.ip,
-        game_id: trxObj.gameid,
+        game_id: GAME_ID,
         create_time: moment.unix(trxObj.pay_time).format("YYYY-MM-DD HH:mm:ss")
       };
 
@@ -101,44 +101,44 @@ const update_whale = async () => {
   const [rows, fields] = await db2
     .promise()
     .query(
-      "insert into whale_users(uid,char_in_game_id,server_name,deposit_total,site) select account as uid,role_id as char_in_game_id,server as server_name,sum(amount) as total,'H54' as site  from negame_orders where  game_id='h54naxx2hmt' group by account, server, role_id having sum(amount)>=20000 ON DUPLICATE KEY UPDATE deposit_total=(select sum(amount) from negame_orders where  game_id='h54naxx2hmt' and whale_users.char_in_game_id=negame_orders.role_id)"
+      `insert into whale_users(uid,char_in_game_id,server_name,deposit_total,site) select account as uid,role_id as char_in_game_id,server as server_name,sum(amount) as total,game_id as site  from negame_orders where  game_id='${GAME_ID}' group by account, server, role_id having sum(amount)>=20000 ON DUPLICATE KEY UPDATE deposit_total=(select sum(amount) from negame_orders where  game_id='${GAME_ID}' and whale_users.char_in_game_id=negame_orders.role_id)`
     );
 
-  console.log("update_whale", rows);
+  //console.log("update_whale", rows);
   if (rows.affectedRows > 0) {
     const [rows1, fields1] = await db2
       .promise()
       .query(
-        "update whale_users set latest_topup_date =(select max(create_time) from negame_orders where game_id='h54naxx2hmt' and role_id=whale_users.char_in_game_id) where site='H54'"
+        `update whale_users set latest_topup_date =(select max(create_time) from negame_orders where game_id='${GAME_ID}' and role_id=whale_users.char_in_game_id) where site='${GAME_ID}'`
       );
-    console.log("update_whale latest_topup_date", rows1);
+    //console.log("update_whale latest_topup_date", rows1);
 
     const [rows2, fields2] = await db2
       .promise()
       .query(
-        "update whale_users set char_name =(select role_name from negame_orders where game_id='h54naxx2hmt' and role_id=whale_users.char_in_game_id  order by create_time desc limit 1 )  where site='H54'"
+        `update whale_users set char_name =(select role_name from negame_orders where game_id='${GAME_ID}' and role_id=whale_users.char_in_game_id  order by create_time desc limit 1 )  where site='${GAME_ID}'`
       );
 
-    console.log("update_whale char_name", rows2);
+    //console.log("update_whale char_name", rows2);
 
     const [rows3, fields3] = await db2
       .promise()
       .query(
-        "update whale_users set ip =(select ip from negame_orders where game_id='h54naxx2hmt' and role_id=whale_users.char_in_game_id  order by create_time desc limit 1 )  where site='H54'"
+        `update whale_users set ip =(select ip from negame_orders where game_id='${GAME_ID}' and role_id=whale_users.char_in_game_id  order by create_time desc limit 1 )  where site='${GAME_ID}'`
       );
 
     db2
       .promise()
       .query(
-        "SELECT char_in_game_id,ip,country FROM whale_users WHERE site ='H54'"
+        `SELECT char_in_game_id,ip,country FROM whale_users WHERE site ='${GAME_ID}'`
       )
       .then(([rows, fields]) => {
         rows.forEach(row => {
-          console.log(row);
+          //console.log(row);
           const geo = geoip.lookup(row.ip);
-          console.log(geo);
+          //console.log(geo);
           db2.query(
-            "update whale_users set country =? where char_in_game_id=? and site='H54' ",
+            `update whale_users set country =? where char_in_game_id=? and site='${GAME_ID}'`,
             [geo.country, row.char_in_game_id],
             function(error, results, fields) {
               if (error) {
