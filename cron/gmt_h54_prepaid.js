@@ -1,5 +1,6 @@
 const axios = require("axios");
 const config = require("../config/config");
+const geoip = require("geoip-lite");
 const { db1, db2 } = require("../models/db_conn");
 
 // const path = require("path");
@@ -9,6 +10,7 @@ const url = `${config["h54_url_prefix"]}/prepaid/${moment()
   .subtract(1, "days")
   .format("YYYYMMDD")}.log`;
 
+const game_id = "H54";
 //const url = "http://h54hmt.gameop.easebar.com/logs/h54hmt/prepaid/20190606.log";
 // 1. get log
 axios
@@ -34,8 +36,12 @@ axios
     }
 
     setTimeout(function() {
-      process.exit(1);
-    }, 30000);
+      update_whale();
+    }, 3000);
+
+    // setTimeout(function() {
+    //   process.exit(1);
+    // }, 30000);
 
     //console.log(data);
   })
@@ -85,6 +91,70 @@ const create_order = trxObj => {
     results,
     fields
   ) {
-    if (error) throw error;
+    if (error) {
+      console.log(error.message);
+    }
   });
+};
+
+const update_whale = async () => {
+  const [rows, fields] = await db2
+    .promise()
+    .query(
+      "insert into whale_users(uid,char_in_game_id,server_name,deposit_total,site) select account as uid,role_id as char_in_game_id,server as server_name,sum(amount) as total,'H54' as site  from negame_orders where  game_id='h54naxx2hmt' group by account, server, role_id having sum(amount)>=20000 ON DUPLICATE KEY UPDATE deposit_total=(select sum(amount) from negame_orders where  game_id='h54naxx2hmt' and whale_users.char_in_game_id=negame_orders.role_id)"
+    );
+
+  console.log("update_whale", rows);
+  if (rows.affectedRows > 0) {
+    const [rows1, fields1] = await db2
+      .promise()
+      .query(
+        "update whale_users set latest_topup_date =(select max(create_time) from negame_orders where game_id='h54naxx2hmt' and role_id=whale_users.char_in_game_id) where site='H54'"
+      );
+    console.log("update_whale latest_topup_date", rows1);
+
+    const [rows2, fields2] = await db2
+      .promise()
+      .query(
+        "update whale_users set char_name =(select role_name from negame_orders where game_id='h54naxx2hmt' and role_id=whale_users.char_in_game_id  order by create_time desc limit 1 )  where site='H54'"
+      );
+
+    console.log("update_whale char_name", rows2);
+
+    const [rows3, fields3] = await db2
+      .promise()
+      .query(
+        "update whale_users set ip =(select ip from negame_orders where game_id='h54naxx2hmt' and role_id=whale_users.char_in_game_id  order by create_time desc limit 1 )  where site='H54'"
+      );
+
+    db2
+      .promise()
+      .query(
+        "SELECT char_in_game_id,ip,country FROM whale_users WHERE site ='H54'"
+      )
+      .then(([rows, fields]) => {
+        rows.forEach(row => {
+          console.log(row);
+          const geo = geoip.lookup(row.ip);
+          console.log(geo);
+          db2.query(
+            "update whale_users set country =? where char_in_game_id=? and site='H54' ",
+            [geo.country, row.char_in_game_id],
+            function(error, results, fields) {
+              if (error) {
+                console.log(error.message);
+              }
+            }
+          );
+        });
+      })
+      .catch(err => {
+        console.log(err.message);
+        //return { status: -1, msg: err.message };
+      });
+
+    setTimeout(function() {
+      process.exit(1);
+    }, 30000);
+  }
 };
