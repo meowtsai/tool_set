@@ -2,8 +2,19 @@
 // * 開始parse
 // * 塞入資料
 // * done
+
+//每天凌晨尋找 allocate_date > 昨天 的單子
+//把allocate_result 中 日期時間大於昨天0時的紀錄填入log表格
+const moment = require("moment");
+
+const log_day = moment()
+  .subtract(1, "days")
+  .format("YYYY-MM-DD");
+
 const { db1, db2 } = require("../models/db_conn");
-const sql_query = `SELECT id,allocate_result from questions where allocate_finish_date between '2019-05-01' and '2019-05-31' and  allocate_status=2`;
+//const sql_query = `SELECT id,allocate_result from questions where allocate_finish_date between '2019-05-01' and '2019-06-26 23:59:59' and allocate_status<>0`;
+const sql_query = `SELECT id,allocate_result from questions where allocate_date between '${log_day}' and '${log_day} 23:59:59' and allocate_status<>0`;
+
 //const sql_query = `SELECT id,allocate_result from questions where id in(244159,244197,244210)`;
 async function main() {
   const get_data = async () => {
@@ -70,7 +81,15 @@ async function main() {
           note: admin_text
         };
 
-        insert_record(record);
+        const record_dt = new Date(dt);
+        const standard_dt = new Date(log_day);
+        if (record_dt > standard_dt) {
+          insert_record(record);
+          //console.log(dt, "Bigger!");
+        } else {
+          //console.log(dt, "Smaller!");
+        }
+        //insert_record(record);
       }
     }
   }
