@@ -37,7 +37,7 @@ async function main() {
   };
 
   const insert_record = record => {
-    db2.query("INSERT INTO question_allocate_logs SET ?", record, function(
+    db1.query("INSERT INTO question_allocate_logs SET ?", record, function(
       error,
       results,
       fields
