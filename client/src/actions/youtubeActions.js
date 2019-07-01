@@ -10,8 +10,10 @@ import {
   GET_CHANNEL_LIST,
   GET_YT_REPORTS,
   GET_YOUTUEBRS,
+  GET_YOUTUEBR,
   GET_CHART_FILES,
-  GET_CHART_DATA
+  GET_CHART_DATA,
+  FOLLOW_CHANNEL
 } from "./types";
 
 // router.post("/get_videos/:game_id", (req, res) => {
@@ -53,6 +55,23 @@ export const getYoutubers = () => dispatch => {
     .catch(err =>
       dispatch({
         type: GET_YOUTUEBRS,
+        payload: []
+      })
+    );
+};
+export const getYoutuber = yt_id => dispatch => {
+  dispatch(setLoading());
+  axios
+    .get(`/api/youtube/get_youtuber/${yt_id}`)
+    .then(res =>
+      dispatch({
+        type: GET_YOUTUEBR,
+        payload: res.data.msg
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_YOUTUEBR,
         payload: []
       })
     );
@@ -198,4 +217,36 @@ export const createChannel = (ChannelData, history) => dispatch => {
         payload: err.response.data
       });
     });
+};
+
+export const modifyChannel = (ChannelData, history) => dispatch => {
+  axios
+    .post("/api/youtube/channel/modify", ChannelData)
+    .then(res => history.push("/youtube/channel/list"))
+    .catch(err => {
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      });
+    });
+};
+
+export const followChannel = ChannelData => dispatch => {
+  dispatch(setLoading());
+  //console.log("followChannel", ChannelData);
+  axios
+    .post("/api/youtube/channel/follow", ChannelData)
+    .then(res => {
+      console.log("followChannel", res.data);
+      dispatch({
+        type: FOLLOW_CHANNEL,
+        payload: ChannelData
+      });
+    })
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
 };

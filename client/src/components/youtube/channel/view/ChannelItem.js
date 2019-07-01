@@ -1,6 +1,15 @@
 import React, { Component } from "react";
 import Moment from "react-moment";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { followChannel } from "../../../../actions/youtubeActions";
+
 class ChannelItem extends Component {
+  onFollowAction(channel_data) {
+    console.log("channel_data", channel_data);
+    this.props.followChannel(channel_data);
+  }
   render() {
     const { youtuber } = this.props;
     return (
@@ -18,15 +27,23 @@ class ChannelItem extends Component {
               rel="noopener noreferrer"
             >
               {youtuber.title}
-            </a>
+            </a>{" "}
           </strong>{" "}
           <br /> ( 頻道 ID: {youtuber.id})
         </td>
-        <td />
+        <td>{youtuber.games_group}</td>
 
-        <td>{parseInt(youtuber.subscriber_count).toLocaleString()}</td>
-        <td>{parseInt(youtuber.video_count).toLocaleString()} </td>
-        <td>{parseInt(youtuber.view_count).toLocaleString()}</td>
+        <td>
+          <i className="fas fa-user-friends text-info mr-3" />
+          {parseInt(youtuber.subscriber_count).toLocaleString()} <br />
+          <i className="fas fa-film text-info mr-3" />
+          {parseInt(youtuber.video_count).toLocaleString()}
+          <br />
+          <i className="fas fa-eye text-info mr-3" />
+          {parseInt(youtuber.view_count).toLocaleString()}
+          <br />
+        </td>
+
         <td>
           {" "}
           <Moment format="YYYY-MM-DD HH:mm:ss">
@@ -40,10 +57,40 @@ class ChannelItem extends Component {
           </Moment>{" "}
         </td>
 
-        <td />
+        <td>
+          <button
+            type="button"
+            onClick={this.onFollowAction.bind(this, {
+              id: youtuber.id,
+              action: !youtuber.following
+            })}
+            className={`btn ${
+              youtuber.following ? "btn-danger" : "btn-secondary"
+            } btn-sm`}
+          >
+            {youtuber.following ? (
+              <i className="fas fa-minus" />
+            ) : (
+              <i className="fas fa-plus" />
+            )}
+          </button>
+          <Link
+            to={`/youtube/channel/edit-channel/${youtuber.id}`}
+            className="btn btn-primary btn-sm ml-2"
+          >
+            <i className="fas fa-edit" />
+          </Link>
+        </td>
       </tr>
     );
   }
 }
 
-export default ChannelItem;
+ChannelItem.propTypes = {
+  followChannel: PropTypes.func.isRequired
+};
+
+export default connect(
+  null,
+  { followChannel }
+)(ChannelItem);

@@ -5,14 +5,17 @@ import {
   GET_CHANNEL_LIST,
   GET_YT_REPORTS,
   GET_YOUTUEBRS,
+  GET_YOUTUEBR,
   GET_CHART_FILES,
-  GET_CHART_DATA
+  GET_CHART_DATA,
+  FOLLOW_CHANNEL
 } from "../actions/types";
 
 const initialState = {
   ranking_list: [],
   channel_list: [],
   youtubers: [],
+  youtuber: {},
   yt_reports: [],
   chart_filenames: [],
   chart_data: [],
@@ -44,6 +47,27 @@ export default function(state = initialState, action) {
       return {
         ...state,
         youtubers: action.payload,
+        loading: false
+      };
+    case GET_YOUTUEBR:
+      return {
+        ...state,
+        youtuber: action.payload,
+        loading: false
+      };
+    case FOLLOW_CHANNEL:
+      return {
+        ...state,
+        youtubers: [
+          ...state.youtubers.map(yt => {
+            if (yt.id === action.payload.id) {
+              yt.following = action.payload.action;
+              return yt;
+            } else {
+              return yt;
+            }
+          })
+        ],
         loading: false
       };
     case GET_CHART_FILES:

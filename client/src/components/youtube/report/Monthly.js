@@ -62,7 +62,7 @@ class Monthly extends Component {
   render() {
     const { yt_reports, loading } = this.props.youtube;
     const { sortyBy, asc, game_name, yyyymm } = this.state;
-    const fileName = `${game_name}${yyyymm}`;
+    const fileName = `${yyyymm}_${new Date().getTime()}`;
     // console.log("sortyBy", sortyBy);
     // console.log("asc", asc);
     const errors = this.props.errors.errors;
@@ -227,8 +227,8 @@ class Monthly extends Component {
 
                   <tbody>
                     {yt_reports &&
-                      yt_reports.map(item => (
-                        <tr key={item.channelId}>
+                      yt_reports.map((item, index) => (
+                        <tr key={index}>
                           <td className="text-center">{item.game_name}</td>
                           <td className="text-center">{item.title}</td>
                           <td className="text-right">

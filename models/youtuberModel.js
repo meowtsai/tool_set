@@ -5,8 +5,8 @@ const Youtuber = {
     return await db2
       .promise()
       .query(
-        `select id, title, published_at, update_time,thumbnails, country,view_count , subscriber_count, video_count,games_group
-          from youtubers`
+        `select id, title, published_at, update_time,thumbnails, country,view_count , subscriber_count, video_count,games_group,following
+          from youtubers order by following desc, view_count desc`
       )
       .then(([rows, fields]) => ({ status: 1, msg: rows }))
       .catch(err => {
@@ -18,7 +18,7 @@ const Youtuber = {
     return await db2
       .promise()
       .query(
-        `select id, title, published_at, update_time,thumbnails, country,view_count , subscriber_count, video_count
+        `select id, title, published_at, update_time,thumbnails, country,view_count , subscriber_count, video_count,games_group,following
           from youtubers where id=?`,
         id
       )

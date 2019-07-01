@@ -14,6 +14,7 @@ export const GET_COMPLAINT = "GET_COMPLAINT";
 export const GET_RANKING_LIST = "GET_RANKING_LIST";
 export const GET_CHANNEL_LIST = "GET_CHANNEL_LIST";
 export const GET_YOUTUEBRS = "GET_YOUTUEBRS";
+export const GET_YOUTUEBR = "GET_YOUTUEBR";
 
 export const YOUTUBE_LOADING = "YOUTUBE_LOADING";
 export const CLEAR_LOADING = "CLEAR_LOADING";
@@ -22,3 +23,5 @@ export const GET_YT_REPORTS = "GET_YT_REPORTS";
 
 export const GET_CHART_FILES = "GET_CHART_FILES";
 export const GET_CHART_DATA = "GET_CHART_DATA";
+
+export const FOLLOW_CHANNEL = "FOLLOW_CHANNEL";

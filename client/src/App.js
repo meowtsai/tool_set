@@ -22,7 +22,7 @@ import DailyChart from "./components/youtube/report/DailyChart";
 import ChannelHome from "./components/youtube/channel/view/ChannelHome";
 
 import CreateChannel from "./components/youtube/channel/create/CreateChannel";
-
+import EditChannel from "./components/youtube/channel/edit/EditChannel";
 function App() {
   return (
     <Provider store={store}>
@@ -58,6 +58,11 @@ function App() {
               exact
               path="/youtube/channel/create-channel"
               component={CreateChannel}
+            />
+
+            <Route
+              path="/youtube/channel/edit-channel/:yt_id"
+              component={EditChannel}
             />
 
             <Route path="/not-found" component={NotFound} />

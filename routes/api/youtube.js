@@ -42,6 +42,7 @@ router.get("/get_youtubers", (req, res) => {
 //@access: public
 router.get("/get_youtuber/:youtuber_id", (req, res) => {
   const youtuber_id = req.params.youtuber_id;
+  console.log("youtuber_id", youtuber_id);
   Youtubers.get_one(youtuber_id)
     .then(yt_data => {
       if (yt_data.status === 1) {
@@ -96,6 +97,41 @@ router.post("/channel/create", async (req, res) => {
         });
     } else {
       res.status(400).json({ id: "重複輸入" + createResult.msg });
+    }
+  });
+});
+
+//@route: POST /api/youtube/channel/follow
+//@desc: follow or unfollow a youtuber
+//@access: public
+router.post("/channel/follow", async (req, res) => {
+  const youtube_id = req.body.id;
+  const follow_action = req.body.action; //0  to unfollow 1 to follow
+  console.log("youtube_id", youtube_id);
+  console.log("follow_action", follow_action);
+  Youtubers.modify(youtube_id, { following: follow_action }).then(
+    modifyResult => {
+      if (modifyResult.status === 1) {
+        res.send(modifyResult);
+      } else {
+        return res.status(400).json(modifyResult);
+      }
+    }
+  );
+});
+
+//@route: POST /api/youtube/channel/modify
+//@desc: modify games associate
+//@access: public
+router.post("/channel/modify", async (req, res) => {
+  const youtube_id = req.body.id;
+  const games_group = req.body.games_group;
+
+  Youtubers.modify(youtube_id, { games_group }).then(modifyResult => {
+    if (modifyResult.status === 1) {
+      res.send(modifyResult);
+    } else {
+      return res.status(400).json(modifyResult);
     }
   });
 });
@@ -264,6 +300,7 @@ router.get("/fetch_videos_all", async (req, res) => {
         const yt_id = yts.msg[idx_y].id;
         if (
           yts.msg[idx_y].games_group !== null &&
+          yts.msg[idx_y].following &&
           yts.msg[idx_y].games_group.indexOf(game_id) > -1
         ) {
           console.log("processing ", yts.msg[idx_y].title);
@@ -321,7 +358,7 @@ router.get("/fetch_videos_all", async (req, res) => {
               }
             })
             .catch(function(error) {
-              console.log(error);
+              //console.log(error);
               res.send(error);
             });
         }

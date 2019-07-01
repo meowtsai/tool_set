@@ -4,13 +4,17 @@ import { Link } from "react-router-dom";
 
 import PropTypes from "prop-types";
 import Spinner from "../../../common/Spinner";
-import { getYoutubers } from "../../../../actions/youtubeActions";
+import {
+  getYoutubers,
+  followChannel
+} from "../../../../actions/youtubeActions";
 import ChannelList from "./ChannelList";
 
 class ChannelHome extends Component {
   componentDidMount() {
     this.props.getYoutubers();
   }
+
   render() {
     const { youtubers, loading } = this.props.youtube;
     //console.log(this.props);
@@ -51,5 +55,5 @@ const mapStateToProps = state => ({
 });
 export default connect(
   mapStateToProps,
-  { getYoutubers }
+  { getYoutubers, followChannel }
 )(ChannelHome);

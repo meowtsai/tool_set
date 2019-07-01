@@ -205,7 +205,17 @@ class DailyChart extends Component {
                         .map((item, index) => (
                           <tr key={item.index}>
                             <th scope="row">{index + 1}</th>
-                            <td className="text-left">{item.snippet.title}</td>
+                            <td className="text-left">
+                              <a
+                                href={`https://www.youtube.com/watch?v=${
+                                  item.id
+                                }`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                <strong>{item.snippet.title}</strong>
+                              </a>
+                            </td>
                             <td className="text-right">
                               {parseInt(
                                 item.statistics.viewCount
