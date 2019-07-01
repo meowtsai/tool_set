@@ -245,8 +245,8 @@ router.get("/fetch_videos/:yt_id", async (req, res) => {
 });
 
 router.get("/fetch_videos_all", async (req, res) => {
-  const d1 = "2019-05-01T00:00:00Z";
-  const d2 = "2019-05-31T23:59:59Z";
+  const d1 = "2019-06-01T00:00:00Z";
+  const d2 = "2019-06-30T23:59:59Z";
 
   if (isEmpty(req.query.keyword) || isEmpty(req.query.game_id)) {
     res.send("No keyword & game_id params!");
@@ -262,62 +262,69 @@ router.get("/fetch_videos_all", async (req, res) => {
     .then(yts => {
       for (let idx_y = 0; idx_y < yts.msg.length; idx_y++) {
         const yt_id = yts.msg[idx_y].id;
-        console.log("processing ", yts.msg[idx_y].title);
-        const url =
-          google_api_yt +
-          `/search?part=id&channelId=${yt_id}&order=viewCount&publishedAfter=${d1}&publishedBefore=${d2}&maxResults=50&relevanceLanguage=zh-Hant&q=${keyword}&key=${
-            config.api_key
-          }`;
-        get_idlist(url)
-          .then(id_list_array => {
-            //console.log("id_list_array", id_list_array);
-            //1. get detail info of the videos retrived from first page
-            //2. insert into db
-            //3. see if there is next page , if yes go back to step 1 with nextpage token
-            for (let idx = 0; idx < id_list_array.length; idx++) {
-              const element = id_list_array[idx];
-              const items_array = element.map(item => item.id.videoId);
-              //console.log("items_array" + idx, items_array);
-              get_videos_by_idlist(items_array).then(video_detail_list => {
-                //console.log("video_detail_list", video_detail_list);
-                const videos_items = video_detail_list.items;
-                videos_items.forEach(video => {
-                  YoutuberVideo.get_one(video.id).then(vData => {
-                    if (vData.status === 1) {
-                      YoutuberVideo.modify(video.id, {
-                        title: video.snippet.title,
-                        published_at: new Date(video.snippet.publishedAt),
-                        update_time: new Date(),
-                        channelId: video.snippet.channelId,
-                        view_count: video.statistics.viewCount,
-                        like_count: video.statistics.likeCount,
-                        dislike_count: video.statistics.dislikeCount,
-                        comment_count: video.statistics.commentCount,
-                        game_id
-                      });
-                    } else {
-                      YoutuberVideo.create({
-                        id: video.id,
-                        title: video.snippet.title,
-                        published_at: new Date(video.snippet.publishedAt),
-                        update_time: new Date(),
-                        channelId: video.snippet.channelId,
-                        view_count: video.statistics.viewCount,
-                        like_count: video.statistics.likeCount,
-                        dislike_count: video.statistics.dislikeCount,
-                        comment_count: video.statistics.commentCount,
-                        game_id
-                      });
-                    }
+        if (
+          yts.msg[idx_y].games_group !== null &&
+          yts.msg[idx_y].games_group.indexOf(game_id) > -1
+        ) {
+          console.log("processing ", yts.msg[idx_y].title);
+          //res.send({ status: 1, msg: "DONE" });
+          //return;
+          const url =
+            google_api_yt +
+            `/search?part=id&channelId=${yt_id}&order=viewCount&publishedAfter=${d1}&publishedBefore=${d2}&maxResults=50&relevanceLanguage=zh-Hant&q=${keyword}&key=${
+              config.api_key
+            }`;
+          get_idlist(url)
+            .then(id_list_array => {
+              //console.log("id_list_array", id_list_array);
+              //1. get detail info of the videos retrived from first page
+              //2. insert into db
+              //3. see if there is next page , if yes go back to step 1 with nextpage token
+              for (let idx = 0; idx < id_list_array.length; idx++) {
+                const element = id_list_array[idx];
+                const items_array = element.map(item => item.id.videoId);
+                //console.log("items_array" + idx, items_array);
+                get_videos_by_idlist(items_array).then(video_detail_list => {
+                  //console.log("video_detail_list", video_detail_list);
+                  const videos_items = video_detail_list.items;
+                  videos_items.forEach(video => {
+                    YoutuberVideo.get_one(video.id).then(vData => {
+                      if (vData.status === 1) {
+                        YoutuberVideo.modify(video.id, {
+                          title: video.snippet.title,
+                          published_at: new Date(video.snippet.publishedAt),
+                          update_time: new Date(),
+                          channelId: video.snippet.channelId,
+                          view_count: video.statistics.viewCount,
+                          like_count: video.statistics.likeCount,
+                          dislike_count: video.statistics.dislikeCount,
+                          comment_count: video.statistics.commentCount,
+                          game_id
+                        });
+                      } else {
+                        YoutuberVideo.create({
+                          id: video.id,
+                          title: video.snippet.title,
+                          published_at: new Date(video.snippet.publishedAt),
+                          update_time: new Date(),
+                          channelId: video.snippet.channelId,
+                          view_count: video.statistics.viewCount,
+                          like_count: video.statistics.likeCount,
+                          dislike_count: video.statistics.dislikeCount,
+                          comment_count: video.statistics.commentCount,
+                          game_id
+                        });
+                      }
+                    });
                   });
                 });
-              });
-            }
-          })
-          .catch(function(error) {
-            console.log(error);
-            res.send(error);
-          });
+              }
+            })
+            .catch(function(error) {
+              console.log(error);
+              res.send(error);
+            });
+        }
       }
       res.send({ status: 1, msg: "DONE" });
     })

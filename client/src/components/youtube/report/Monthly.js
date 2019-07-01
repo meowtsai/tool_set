@@ -75,11 +75,8 @@ class Monthly extends Component {
     ];
     //let options = CONFIG.GameOptions;
     let yy_options = [
-      { label: "2019-05", value: "2019-05" },
-      { label: "2019-04", value: "2019-04" },
-      { label: "2019-03", value: "2019-03" },
-      { label: "2019-02", value: "2019-02" },
-      { label: "2019-01", value: "2019-01" }
+      { label: "2019-06", value: "2019-06" },
+      { label: "2019-05", value: "2019-05" }
     ];
     if (sortyBy !== "") {
       let scending = asc ? 1 : -1;

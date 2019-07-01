@@ -11,7 +11,7 @@ class ChannelList extends Component {
         <thead>
           <tr>
             <th scope="col">名稱</th>
-            <th scope="col">圖</th>
+            <th scope="col">遊戲</th>
             <th scope="col">
               <i class="fas fa-user-friends text-info mr-3" />
               訂閱數{" "}

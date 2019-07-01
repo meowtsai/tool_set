@@ -6,14 +6,23 @@ class ChannelItem extends Component {
     return (
       <tr>
         <td>
-          <strong>{youtuber.title}</strong> <br /> ( 頻道 ID: {youtuber.id})
-        </td>
-        <td>
           <img
+            className="mr-2"
             src={youtuber.thumbnails}
-            style={{ borderRadius: "50%", width: "50%" }}
+            style={{ borderRadius: "50%", width: "10%" }}
           />
+          <strong>
+            <a
+              href={`https://www.youtube.com/channel/${youtuber.id}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {youtuber.title}
+            </a>
+          </strong>{" "}
+          <br /> ( 頻道 ID: {youtuber.id})
         </td>
+        <td />
 
         <td>{parseInt(youtuber.subscriber_count).toLocaleString()}</td>
         <td>{parseInt(youtuber.video_count).toLocaleString()} </td>

@@ -5,7 +5,7 @@ const Youtuber = {
     return await db2
       .promise()
       .query(
-        `select id, title, published_at, update_time,thumbnails, country,view_count , subscriber_count, video_count
+        `select id, title, published_at, update_time,thumbnails, country,view_count , subscriber_count, video_count,games_group
           from youtubers`
       )
       .then(([rows, fields]) => ({ status: 1, msg: rows }))
