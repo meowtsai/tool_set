@@ -16,7 +16,7 @@ class Monthly extends Component {
     super(props);
     this.state = {
       game_name: "第五人格",
-      yyyymm: "2019-05",
+      yyyymm: "2019-06",
       sortyBy: "view_count",
       asc: false,
       errors: {}
