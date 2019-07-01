@@ -41,9 +41,10 @@ class Monthly extends Component {
       begin_date: moment(`${this.state.yyyymm}-01T00:00:00`).format(
         "YYYY-MM-DDTHH:mm:ss"
       ), //2019-04-24T14:00
-      end_date: moment(`${this.state.yyyymm}-31T23:59:59`).format(
-        "YYYY-MM-DDTHH:mm:ss"
-      ) //2019-04-24T14:00
+
+      end_date: moment(`${this.state.yyyymm}-01T00:00:00`)
+        .endOf("month")
+        .format("YYYY-MM-DDTHH:mm:ss") //2019-04-24T14:00
     };
     //console.log(this.state.yyyymm);
     //console.log(searchObject);
@@ -51,7 +52,7 @@ class Monthly extends Component {
       game => game.value === this.state.game_name
     )[0];
 
-    //console.log(game.game_id);
+    //console.log(searchObject);
     this.props.getYtReports(game.game_id, searchObject);
   }
   onChange(e) {
