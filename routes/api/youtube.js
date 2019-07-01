@@ -344,18 +344,18 @@ router.get("/get_video/:video_id", (req, res) => {
     .catch(err => res.status(400).send({ status: -1, msg: err.message }));
 });
 
-router.get("/get_videos/:game_id", (req, res) => {
-  const game_id = req.params.game_id;
-  YoutuberVideo.get_one(video_id)
-    .then(yt_data => {
-      if (yt_data.status === 1) {
-        res.send(yt_data);
-      } else {
-        res.status(400).send(yt_data);
-      }
-    })
-    .catch(err => res.status(400).send({ status: -1, msg: err.message }));
-});
+// router.get("/get_videos/:game_id", (req, res) => {
+//   const game_id = req.params.game_id;
+//   YoutuberVideo.get_one(video_id)
+//     .then(yt_data => {
+//       if (yt_data.status === 1) {
+//         res.send(yt_data);
+//       } else {
+//         res.status(400).send(yt_data);
+//       }
+//     })
+//     .catch(err => res.status(400).send({ status: -1, msg: err.message }));
+// });
 
 //@route: POST /api/edm/modify/:edm_id
 //@desc: update edm content by its id
