@@ -9,7 +9,9 @@ app.use(express.json());
 app.use("/api/edm", edm);
 app.use("/api/youtube", youtube);
 app.use("/api/g66_tool", g66_tool);
+
 app.use("/api/gmt", require("./routes/api/gmt"));
+app.use("/api/service_rpt", require("./routes/api/service_rpt"));
 
 //serve static assets if in production
 if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "stage") {

@@ -25,3 +25,6 @@ export const GET_CHART_FILES = "GET_CHART_FILES";
 export const GET_CHART_DATA = "GET_CHART_DATA";
 
 export const FOLLOW_CHANNEL = "FOLLOW_CHANNEL";
+
+export const GET_HOME_DATA = "GET_HOME_DATA";
+export const GET_CS_DATA = "GET_CS_DATA";

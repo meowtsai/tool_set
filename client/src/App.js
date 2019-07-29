@@ -20,7 +20,7 @@ import Monthly from "./components/youtube/report/Monthly";
 import DailyChart from "./components/youtube/report/DailyChart";
 
 import ChannelHome from "./components/youtube/channel/view/ChannelHome";
-
+import ServiceRptHome from "./components/service_rpt/ServiceRptHome";
 import CreateChannel from "./components/youtube/channel/create/CreateChannel";
 import EditChannel from "./components/youtube/channel/edit/EditChannel";
 function App() {
@@ -64,6 +64,8 @@ function App() {
               path="/youtube/channel/edit-channel/:yt_id"
               component={EditChannel}
             />
+
+            <Route path="/service_rpt/home" component={ServiceRptHome} />
 
             <Route path="/not-found" component={NotFound} />
           </div>

@@ -11,6 +11,12 @@ class Navbar extends Component {
         title: "GMT 工具",
         menu: [{ label: "😖 海島檢舉分析報表", link: "/gmt/h54/complaint" }]
       };
+    } else if (location.pathname.split("/")[1] === "service_rpt") {
+      navbar_data = {
+        icon: "fas fa-concierge-bell text-success",
+        title: "後送統計報表",
+        menu: [{ label: "★ 總覽", link: "/service_rpt/home" }]
+      };
     } else {
       navbar_data = {
         icon: "fab fa-youtube text-danger",
