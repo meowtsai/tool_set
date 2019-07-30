@@ -7,6 +7,7 @@ const moment = require("moment");
 //@desc: test route
 //@access: public
 router.get("/test", (req, res) => {
+  serviceRpt.getCaseCountByDateRange;
   res.send("service_rpt Routes Works");
 });
 
@@ -24,16 +25,39 @@ router.get("/home", async (req, res) => {
     ? req.query.end_date
     : moment().format("YYYY-MM-DD");
 
-  const cs_member = req.query.cs !== "" ? req.query.cs : "";
+  //const cs_member = req.query.cs !== "" ? req.query.cs : "";
   //console.log("begin_date", begin_date);
   //console.log("end_date", end_date);
-  const summary = await serviceRpt.getCaseCountByDateRange(
-    begin_date,
-    end_date,
-    cs_member
+
+  const cs_members = await serviceRpt.getCsMembers();
+
+  const p1 = serviceRpt.getCaseCountByDateRange(begin_date, end_date, "");
+
+  const pArray = cs_members.map(cs_member =>
+    serviceRpt.getCaseCountByDateRange(begin_date, end_date, cs_member)
+  );
+  // var p2 =
+
+  // var p3 = serviceRpt.getCaseCountByDateRange(begin_date, end_date, "87");
+
+  Promise.all([p1, ...pArray]).then(
+    summary => {
+      //console.log(values);
+      res.json({ summary });
+    },
+    reason => {
+      console.log(reason);
+      res.json({ reason });
+    }
   );
 
-  res.json({ summary });
+  // const summary = await serviceRpt.getCaseCountByDateRange(
+  //   begin_date,
+  //   end_date,
+  //   cs_member
+  // );
+
+  //res.json({ summary });
 });
 
 router.get("/cs_members", async (req, res) => {

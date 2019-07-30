@@ -2,8 +2,9 @@ const { db2 } = require("./db_conn");
 
 const ServiceRpt = {
   getCaseCountByDateRange: async (beginDt, endDt, cs_member) => {
+    //console.log(cs_member);
     const conditional_query =
-      cs_member !== "" ? ` and allocate_admin_uid=${cs_member}` : "";
+      cs_member !== "" ? ` and allocate_admin_uid=${cs_member.uid}` : "";
     //console.log("conditional_query", conditional_query);
     return await db2
       .promise()
@@ -17,9 +18,9 @@ const ServiceRpt = {
         where allocate_status is not null and allocate_date between ? and ? 
         ${conditional_query}
         group by g.name, b.game_id order by cnt desc;`,
-        [beginDt, endDt]
+        [beginDt, endDt + " 23:59:59"]
       )
-      .then(([rows, fields]) => rows)
+      .then(([rows, fields]) => ({ cs_member, result: rows }))
       .catch(err => {
         //console.log(err);
         return err;
@@ -28,7 +29,7 @@ const ServiceRpt = {
   getCsMembers: async () => {
     return await db2
       .promise()
-      .query(`select * from admin_users where role='cs_master'`)
+      .query(`select uid,name from admin_users where role='cs_master'`)
       .then(([rows, fields]) => rows)
       .catch(err => {
         console.log(err);

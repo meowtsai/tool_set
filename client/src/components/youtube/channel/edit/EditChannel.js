@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import CONFIG from "../../../../actions/CONFIG";
 import { getYoutuber, modifyChannel } from "../../../../actions/youtubeActions";
-import ChannelItem from "../view/ChannelItem";
+
 //import isEmpty from "../../../../validation/is-empty";
 class EditChannel extends Component {
   constructor(props) {
@@ -79,6 +79,7 @@ class EditChannel extends Component {
     return (
       <div className="container">
         <h3 className="mt-4 mb-4"> 修改頻道</h3>
+        {errors && <div className="alert alert-danger">{errors}</div>}
 
         <p className="lead">輸入以下資料</p>
         <div className="row mb-4">
@@ -87,6 +88,7 @@ class EditChannel extends Component {
               {" "}
               頻道名稱: {youtuber.title}{" "}
               <img
+                alt={youtuber.title}
                 className="mr-2"
                 src={youtuber.thumbnails}
                 style={{ borderRadius: "50%", width: "10%" }}

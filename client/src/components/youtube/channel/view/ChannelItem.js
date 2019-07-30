@@ -17,6 +17,7 @@ class ChannelItem extends Component {
         <td>
           <img
             className="mr-2"
+            alt={youtuber.title}
             src={youtuber.thumbnails}
             style={{ borderRadius: "50%", width: "10%" }}
           />

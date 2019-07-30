@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { GET_HOME_DATA, GET_ERRORS, GET_CS_DATA } from "./types";
+import { GET_HOME_DATA, GET_CS_DATA } from "./types";
 
 export const getHomeData = (begin_date, end_date, cs) => dispatch => {
   axios

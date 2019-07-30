@@ -7,36 +7,24 @@ import SelectListGroup from "../common/SelectListGroup";
 import Summary from "./Summary";
 import Spinner from "../common/Spinner";
 
-const ServiceRptHome = props => {
-  const { home, loading, cs_members } = props.serviceRpt;
-  //console.log("ServiceRptHome home", home);
+const ServiceRptHome = ({ serviceRpt, getHomeData }) => {
+  const { home, loading } = serviceRpt;
+  //console.log("ServiceRptHome home", home.summary);
   const [begin_date, setBeginDate] = useState(
     moment()
       .subtract(7, "days")
       .format("YYYY-MM-DD")
   );
   const [end_date, setEndDate] = useState(moment().format("YYYY-MM-DD"));
-  const [cs_member, setCsMember] = useState("");
 
   useEffect(() => {
-    props.getHomeData(begin_date, end_date, cs_member);
-    props.getCsMemebrs();
+    getHomeData(begin_date, end_date, "");
   }, []);
 
   const onGetData = e => {
     //console.log("on get data");
-    props.getHomeData(begin_date, end_date, cs_member);
+    getHomeData(begin_date, end_date, "");
   };
-
-  let options = [];
-  if (cs_members.length > 0) {
-    options = cs_members.map(cs_member => ({
-      label: cs_member.name,
-      value: cs_member.uid
-    }));
-  }
-
-  options = [{ label: "** 不指定專員 **", value: "" }, ...options];
 
   if (loading) return <Spinner />;
 
@@ -74,19 +62,7 @@ const ServiceRptHome = props => {
               icon="far fa-calendar-alt"
             />
           </div>
-          <div className="col-md-3">
-            <SelectListGroup
-              placeholder="客服專員"
-              name="cs_member"
-              value={cs_member}
-              onChange={e => {
-                setCsMember(e.target.value);
-              }}
-              error={""}
-              options={options}
-              info="可指定客服專員查看"
-            />
-          </div>
+
           <div className="col-md-3">
             <button className="btn btn-primary" onClick={onGetData}>
               確定
@@ -94,7 +70,10 @@ const ServiceRptHome = props => {
           </div>
         </div>
       </div>
-      {home && <Summary summary={home.summary} />}
+      {home.summary &&
+        home.summary.map((data, index) => (
+          <Summary key={index} summary={data} />
+        ))}
     </div>
   );
 };
