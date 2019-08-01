@@ -16,7 +16,9 @@ class Monthly extends Component {
     super(props);
     this.state = {
       game_name: "第五人格",
-      yyyymm: moment().format("YYYY-MM"),
+      yyyymm: moment()
+        .subtract(1, "months")
+        .format("YYYY-MM"),
       sortyBy: "view_count",
       asc: false,
       errors: {}
@@ -46,8 +48,8 @@ class Monthly extends Component {
         .endOf("month")
         .format("YYYY-MM-DDTHH:mm:ss") //2019-04-24T14:00
     };
-    //console.log(this.state.yyyymm);
-    //console.log(searchObject);
+    // console.log(this.state.yyyymm);
+    // console.log(searchObject);
     const game = CONFIG.GameOptions.filter(
       game => game.value === this.state.game_name
     )[0];
