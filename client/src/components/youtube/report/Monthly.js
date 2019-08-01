@@ -16,7 +16,7 @@ class Monthly extends Component {
     super(props);
     this.state = {
       game_name: "第五人格",
-      yyyymm: "2019-06",
+      yyyymm: moment().format("YYYY-MM"),
       sortyBy: "view_count",
       asc: false,
       errors: {}
@@ -75,10 +75,25 @@ class Monthly extends Component {
       { label: "不喜歡", key: "dislike_count" }
     ];
     //let options = CONFIG.GameOptions;
-    let yy_options = [
-      { label: "2019-06", value: "2019-06" },
-      { label: "2019-05", value: "2019-05" }
-    ];
+    // console.log("now", moment().format("YYYY-MM"));
+    // console.log(moment.duration().asMonths());
+
+    const currMonth = new moment();
+    const initMonth = new moment([2019, 5]);
+    const duration = currMonth.diff(initMonth, "months");
+    let yy_options = [];
+    for (let i = 1; i <= duration + 1; i++) {
+      let dt = moment()
+        .subtract(i, "months")
+        .format("YYYY-MM");
+      yy_options.push({ label: dt, value: dt });
+    }
+
+    // console.log("duration", duration);
+    // let yy_options = [
+    //   { label: "2019-06", value: "2019-06" },
+    //   { label: "2019-05", value: "2019-05" }
+    // ];
     if (sortyBy !== "") {
       let scending = asc ? 1 : -1;
 
