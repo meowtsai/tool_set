@@ -47,10 +47,15 @@ class EditChannel extends Component {
   onChange(e) {
     //this.setState({ [e.target.name]: e.target.value });
     const selGame = e.target.value;
-    //console.log(" this.state.games_group", this.state.games_group);
-    let selGames = this.state.games_group.split(",");
+    console.log(" this.state.games_group", this.state.games_group);
+    let selGames = this.state.games_group
+      ? this.state.games_group.split(",")
+      : [];
 
-    if (this.state.games_group.indexOf(selGame) > -1) {
+    if (
+      this.state.games_group &&
+      this.state.games_group.indexOf(selGame) > -1
+    ) {
       selGames = selGames.filter(game => game !== selGame);
       //console.log("selGames", selGames);
     } else {
