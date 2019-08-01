@@ -12,6 +12,7 @@ app.use("/api/g66_tool", g66_tool);
 
 app.use("/api/gmt", require("./routes/api/gmt"));
 app.use("/api/service_rpt", require("./routes/api/service_rpt"));
+app.use("/api/auth", require("./routes/api/auth"));
 
 //serve static assets if in production
 if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "stage") {

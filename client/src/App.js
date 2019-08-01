@@ -23,6 +23,13 @@ import ChannelHome from "./components/youtube/channel/view/ChannelHome";
 import ServiceRptHome from "./components/service_rpt/ServiceRptHome";
 import CreateChannel from "./components/youtube/channel/create/CreateChannel";
 import EditChannel from "./components/youtube/channel/edit/EditChannel";
+import setAuthToken from "./utils/setAuthToken";
+
+import Login from "./components/login/Login";
+
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
 function App() {
   return (
     <Provider store={store}>
@@ -66,6 +73,7 @@ function App() {
             />
 
             <Route path="/service_rpt/home" component={ServiceRptHome} />
+            <Route path="/login" component={Login} />
 
             <Route path="/not-found" component={NotFound} />
           </div>

@@ -28,3 +28,11 @@ export const FOLLOW_CHANNEL = "FOLLOW_CHANNEL";
 
 export const GET_HOME_DATA = "GET_HOME_DATA";
 export const GET_CS_DATA = "GET_CS_DATA";
+
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGIN_ERROR = "LOGIN_ERROR";
+export const SET_LOADING = "SET_LOADING";
+export const USER_LOADED = "USER_LOADED";
+export const AUTH_ERROR = "AUTH_ERROR";
+export const CLEAR_ERRORS = "CLEAR_ERRORS";
+export const LOGOUT = "LOGOUT";

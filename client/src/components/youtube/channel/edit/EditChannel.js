@@ -79,7 +79,6 @@ class EditChannel extends Component {
     return (
       <div className="container">
         <h3 className="mt-4 mb-4"> 修改頻道</h3>
-        {errors && <div className="alert alert-danger">{errors}</div>}
 
         <p className="lead">輸入以下資料</p>
         <div className="row mb-4">

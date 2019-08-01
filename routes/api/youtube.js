@@ -281,8 +281,8 @@ router.get("/fetch_videos/:yt_id", async (req, res) => {
 });
 
 router.get("/fetch_videos_all", async (req, res) => {
-  const d1 = "2019-06-01T00:00:00Z";
-  const d2 = "2019-06-30T23:59:59Z";
+  const d1 = "2019-07-01T00:00:00Z";
+  const d2 = "2019-07-31T23:59:59Z";
 
   if (isEmpty(req.query.keyword) || isEmpty(req.query.game_id)) {
     res.send("No keyword & game_id params!");
